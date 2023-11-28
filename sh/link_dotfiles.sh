@@ -5,12 +5,12 @@
 # ====================
 #      Terminal 
 # ====================
-ln -sf ~/.brendev-wsl/dotfiles/.bash_aliases      ~/.bash_aliases
-ln -sf ~/.brendev-wsl/dotfiles/.bashrc            ~/.bashrc 
-ln -sf ~/.brendev-wsl/dotfiles/.zshrc             ~/.zshrc
-ln -sf ~/.brendev-wsl/dotfiles/.zsh-theme         ~/.oh-my-zsh/themes/brendev.zsh-theme
+ln -sf $BDEV/dotfiles/.bash_aliases      ~/.bash_aliases
+ln -sf $BDEV/dotfiles/.bashrc            ~/.bashrc 
+ln -sf $BDEV/dotfiles/.zshrc             ~/.zshrc
+ln -sf $BDEV/dotfiles/.zsh-theme         ~/.oh-my-zsh/themes/brendev.zsh-theme
 
 # ====================
 #         R 
 # ====================
-ln -sf ~/.brendev-wsl/dotfiles/.Rprofile          ~/.Rprofile
+ln -sf $BDEV/dotfiles/.Rprofile          ~/.Rprofile

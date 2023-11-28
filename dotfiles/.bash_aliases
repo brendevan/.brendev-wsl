@@ -1,6 +1,9 @@
-alias link-dotfiles-wsl='
-  bash $HOME/.dotfiles/wsl-ubuntu/scripts/link_dotfiles.sh
+alias bdev-relinkDotfiles='
+  bash $BDEV/sh/link_dotfiles.sh
 '
+
+
+
 
 # !!NOT WORKING!! 
 # WSL: Add nameserver to resolv.conf
@@ -22,3 +25,4 @@ alias link-dotfiles-wsl='
 #     echo "Error: missing DNS server string. Please pass the WiFi DNS Server as 'X.X.X.X' e.g. > bdev-addNameserver '192.32.254.143'"
 #   fi
 # }
+
