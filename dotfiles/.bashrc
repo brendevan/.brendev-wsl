@@ -7,13 +7,22 @@ fi
 #if [ -t 1 ]; then
 #  exec zsh
 #fi
-export BDEV="$HOME/.brendev-wsl"
-export BDEV="$HOME/.brendev-wsl"
-export BDEV="$HOME/.brendev-wsl"
-export BDEV="$HOME/.brendev-wsl"
-export BDEV="$HOME/.brendev-wsl"
-export BDEV="$HOME/.brendev-wsl"
-export BDEV="$HOME/.brendev-wsl"
-export BDEV="$HOME/.brendev-wsl"
-export BDEV="$HOME/.brendev-wsl"
-export BDEV="$HOME/.brendev-wsl"
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
+export BDEV=/home/brendan/.brendev-wsl
