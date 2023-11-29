@@ -1,4 +1,8 @@
-* Setup VS code .dotfiles (settings, snippets, shortcuts? json files) from bash script?
+* Setup codium .dotfiles (settings, snippets, shortcuts? json files) from bash script?
+
+* Setup codium extensions from bash script
+
+* Switch on windows from code to codium
 
 * Install r packages (renv?)
 
