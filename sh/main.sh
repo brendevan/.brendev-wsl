@@ -19,7 +19,8 @@ BDEV="$HOME/.brendev-wsl"
 # =====================
 # Load helper functions
 source $BDEV/sh/helper.sh
-
+# Cleanup temp files left from previous failed runs
+bdev-cleanup
 # Start progress messages to console
 msg-start
 
@@ -30,6 +31,7 @@ bdev-export "$BDEV"
 bdev-install
 bdev-dotfiles
 
+# Print final messages and cleanup (stop)
 msg "\nFINISHED! 🐳"
 msg "brendev should now be setup"
 msg-stop

@@ -26,7 +26,6 @@ bdev-link-dotfile $BDEV/dotfiles/.bash_aliases  $BASH_ALIASES
 bdev-link-dotfile $BDEV/dotfiles/.bashrc        $BASHRC      
 bdev-link-dotfile $BDEV/dotfiles/.zshrc         $ZSHRC       
 bdev-link-dotfile $BDEV/dotfiles/.zsh-theme     $ZSH_THEME      
-sleep 2
 
 # ====================
 #         R 
@@ -34,7 +33,6 @@ sleep 2
 msg "R:"
 # msg "   - $RPROFILE";       ln -sf $BDEV/dotfiles/.Rprofile          $RPROFILE
 bdev-link-dotfile $BDEV/dotfiles/.Rprofile      $RPROFILE
-sleep 2
 
 # ====================
 #    VS Code/Codium

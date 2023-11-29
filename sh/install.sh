@@ -1,8 +1,7 @@
 #!/bin/bash
 source $BDEV/sh/helper.sh
 
-echo "$MSG_TEMP_FILE" 
-sleep 5
+
 
 msg "\n🦑 INSTALLING SOFTWARE"
 
@@ -52,7 +51,9 @@ yes | sudo bash $BDEV/sh/install_r.sh
 # radian                                     ****REMOVED SUDO, NOT YET TESTED
 msg "   - radian console for R"
 pip3 install -U radian
-
+# # R packages
+# msg "   - R packages (this might take a while)"; sleep 2
+# yes | sudo Rscript $BDEV/r/install_packages.r --install-missing   # install missing r packages
 
 # ===================
 #       quarto

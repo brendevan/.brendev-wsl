@@ -56,3 +56,9 @@ bdev-link-dotfile () {
 bdev-log () {
   eval $1 2>&1 | tee .run-log.txt
 }
+bdev-cleanup () {
+  rm -rf .msg-temp
+}
+bdev-install-rpackages () {
+  sudo Rscript $BDEV/r/install_packages.r
+}
