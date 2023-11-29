@@ -14,3 +14,10 @@ ln -sf $BDEV/dotfiles/.zsh-theme         ~/.oh-my-zsh/themes/brendev.zsh-theme
 #         R 
 # ====================
 ln -sf $BDEV/dotfiles/.Rprofile          ~/.Rprofile
+
+# ====================
+#    VS Code/Codium
+# ====================
+ln -sf $BDEV/dotfiles/.code/settings.json           ~/.code/settings.json
+ln -sf $BDEV/dotfiles/.code/keybindings.json        ~/.code/keybindings.json
+ln -sf $BDEV/dotfiles/.code/snippets.code-snippets  ~/.code/snippets.code-snippets

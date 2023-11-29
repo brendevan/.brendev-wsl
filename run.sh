@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# ======================================
+#     BRENDEV-WSL SETUP: MAIN SCRIPT
+# ======================================
+# This is the main script for setting up my wsl-ubuntu environment
+#  - Install programs with install.sh (which calls other install scripts)
+#  - Setup config/dotfiles with link_dotfiles.sh
+
 # !! Edit this path if cloning .brendev-wsl to somewhere other than $HOME !!
 BDEV="$HOME/.brendev-wsl"
 

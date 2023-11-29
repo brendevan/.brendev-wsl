@@ -1,0 +1,178 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key":     "alt+`",
+        "command": "workbench.action.terminal.focus",
+        "when": "editorTextFocus"
+    },
+    {
+        "key":     "alt+`",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when":    "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+a",
+        "command": "selectAllSearchEditorMatches",
+        "when": "inSearchEditor"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "-selectAllSearchEditorMatches",
+        "when": "inSearchEditor"
+    },
+    {
+        "key": "ctrl+shift+a",
+        "command": "editor.action.selectHighlights",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "-editor.action.selectHighlights",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+a",
+        "command": "addCursorsAtSearchResults",
+        "when": "fileMatchOrMatchFocus && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "-addCursorsAtSearchResults",
+        "when": "fileMatchOrMatchFocus && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "-editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "r.rmarkdown.showPreviewToSide",
+        "when": "editorTextFocus && editorLangId == 'rmd'"
+    },
+    {
+        "key": "ctrl+k v",
+        "command": "-r.rmarkdown.showPreviewToSide",
+        "when": "editorTextFocus && editorLangId == 'rmd'"
+    },
+    {
+        "key": "ctrl+alt+`",
+        "command": "workbench.action.terminal.new",
+        "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+    },
+    {
+        "key": "ctrl+shift+`",
+        "command": "-workbench.action.terminal.new",
+        "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+    },
+    {
+        "key": "ctrl+.",
+        "command": "type",
+        "args": { "text": "|> "},
+        "when": "editorTextFocus"
+    }, 
+    {
+        "key": "Ctrl+.",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "|> " },
+        "when": "terminalFocus"
+    },
+    {
+      "key": "ctrl+shift+,",
+      "command": "type",
+      "args": { "text": "<- "},
+      "when": "editorTextFocus"
+  }, 
+  {
+      "key": "Ctrl+Shift+,",
+      "command": "workbench.action.terminal.sendSequence",
+      "args": { "text": "<- " },
+      "when": "terminalFocus"
+  },
+    {
+        "key": "ctrl+alt+i", 
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {"snippet": "```{r $1}\n$0\n```"}
+    },
+    {
+        "key": "ctrl+alt+s",
+        "command": "r.runSource",
+        "when": "editorTextFocus && editorLangId == 'r'"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "-r.runSource",
+        "when": "editorTextFocus && editorLangId == 'r'"
+    },
+    {
+        "key": "ctrl+shift+m",
+        "command": "-workbench.actions.view.problems",
+        "when": "workbench.panel.markers.view.active"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "markdown.showPreviewToSide",
+        "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+k v",
+        "command": "-markdown.showPreviewToSide",
+        "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "ctrl+m",
+        "command": "-editor.action.toggleTabFocusMode"
+    },
+    {
+        "key": "ctrl+m",
+        "command": "quarto.previewMath",
+        "when": "editorTextFocus && editorLangId == 'quarto'"
+    },
+    {
+      "key": "ctrl+alt+z",
+      "command": "workbench.action.toggleZenMode"
+    },
+    {
+      "key": "ctrl+k z",
+      "command": "-workbench.action.toggleZenMode"
+    },
+    {
+      "key": "capslock v",
+      "command": "quarto.editInVisualMode",
+      "when": "editorLangId == 'markdown' && resourceScheme != 'untitled' || editorLangId == 'quarto' && resourceScheme != 'untitled'"
+    },
+    {
+      "key": "ctrl+shift+f4",
+      "command": "-quarto.editInVisualMode",
+      "when": "editorLangId == 'markdown' && resourceScheme != 'untitled' || editorLangId == 'quarto' && resourceScheme != 'untitled'"
+    },
+    {
+      "key": "capslock v",
+      "command": "quarto.editInSourceMode",
+      "when": "activeCustomEditorId == 'quarto.visualEditor'"
+    },
+    {
+      "key": "ctrl+shift+f4",
+      "command": "-quarto.editInSourceMode",
+      "when": "activeCustomEditorId == 'quarto.visualEditor'"
+    }
+]

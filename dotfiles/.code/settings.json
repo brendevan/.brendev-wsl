@@ -1,0 +1,410 @@
+{
+  "terminal.external.osxExec": "zsh",
+  // WINDOWS ONLY 
+  "r.rpath.windows": "C:\\Users\\bford\\AppData\\Local\\Programs\\R\\R-4.3.1\\bin\\R.exe",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "path": "C:\\Program Files\\Git\\bin\\bash.exe"
+    },
+    "Ubuntu (WSL)": {
+      "path": "C:\\WINDOWS\\System32\\wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu"
+      ]
+    }
+  },
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.cursorBlinking": "expand",
+  "editor.cursorSurroundingLines": 5,
+  "editor.cursorWidth": 4,
+  "editor.detectIndentation": false,
+  "editor.fontLigatures": true,
+  "editor.fontSize": 16, // increase font size and zoom out
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorWidth": 4,
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.rightClickBehavior": "default",
+  "terminal.integrated.commandsToSkipShell": [
+    "workbench.action.toggleSidebarVisibility"
+  ], // THEME from One Pro Dark extension
+  "workbench.panel.defaultLocation": "left",
+  "workbench.colorCustomizations": {
+    "editorCursor.foreground": "#ff00fb",
+    "editor.lineHighlightBackground": "#99999910",
+    "terminalCursor.foreground": "#00ffb7",
+    "editor.selectionBackground": "#980296"
+  },
+  // FONTS
+  "editor.fontFamily": "Fira Code",
+  // R
+  // ensure R: Session Watcher and R > Session: Watch Global Environment enables
+  "files.associations": {
+    "*.rmd": "rmarkdown",
+    "*.Rmd": "rmd"
+  },
+  "r.alwaysUseActiveTerminal": true,
+  "r.bracketedPaste": true,
+  "r.rmarkdown.chunkBackgroundColor": "rgba(0,0,0,0.1)", // darker/lighter: rgba(0,0,0,0)/rgba(255,255,255,0) & increase alpha
+  // QUARTO
+  "quarto.cells.background.dark": "#00000025",
+  "quarto.mathjax.theme": "dark",
+  // Custom color theme
+  // To find scopes to edit, put the cursor on something: cmd+shift+p > Developer: Inspect Editor Token and Scopes
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "R variable", 
+        "scope": "variable", 
+        "settings": {
+          "foreground": "#ABB2BF"
+        }
+      },
+      {
+        "name": "R function parameter", 
+        "scope": "variable.parameter", 
+        "settings": {
+          "foreground": "#E06C75"
+        }
+      },
+      {
+        "name": "Heading text quarto",
+        "scope": "markup.heading entity.name.section",
+        "settings": {
+          "foreground": "#e06c75"
+        }
+      },
+      {
+        "name": "Heading hash quarto",
+        "scope": "markup.heading punctuation.definition.heading",
+        "settings": {
+          "foreground": "#e06c75"
+        }
+      },
+      {
+        "name": "List bullets quarto",
+        "scope": "punctuation.definition.list.begin.quarto",
+        "settings": {
+          "foreground": "#d19A66"
+        }
+      },
+      {
+        "name": "Inline code quarto",
+        "scope": "markup.inline.raw.string.quarto",
+        "settings": {
+          "foreground": "#d179c8"
+        } //blue: #66b8fb purple: #b086f7
+      },
+      {
+        "name": "Inline code marks",
+        "scope": "punctuation.definition.raw.quarto",
+        "settings": {
+          "foreground": "#7F848E"
+        }
+      },
+      {
+        "name": "Code cell header text quarto",
+        "scope": "fenced_code.block.language.markdown",
+        "settings": {
+          "foreground": "#f9b249"
+        }
+      },
+      {
+        "name": "Hyperlink text quarto",
+        "scope": "string.other.link.title.quarto",
+        "settings": {
+          "foreground": "#2482cf"
+        }
+      },
+      {
+        "name": "Hyperlink link quarto",
+        "scope": "markup.underline.link.quarto",
+        "settings": {
+          "foreground": "#7F848E"
+        }
+      },
+      {
+        "name": "Hyperlink link brackets quarto",
+        "scope": "punctuation.definition.metadata.quarto",
+        "settings": {
+          "foreground": "#7F848E"
+        }
+      },
+      {
+        "name": "Hyperlink text open bracket quarto",
+        "scope": "punctuation.definition.link.title.begin.quarto",
+        "settings": {
+          "foreground": "#7F848E"
+        }
+      },
+      {
+        "name": "Hyperlink text open close quarto",
+        "scope": "punctuation.definition.link.title.end.quarto",
+        "settings": {
+          "foreground": "#7F848E"
+        }
+      },
+      {
+        "name": "Code cell marks quarto",
+        "scope": "punctuation.definition.markdown",
+        "settings": {
+          "foreground": "#824338"
+        }
+      },
+      {
+        "name": "Code cells brackets quarto",
+        "scope": "markup.fenced_code.block.markdown",
+        "settings": {
+          "foreground": "#824338"
+        }
+      },
+      {
+        "scope": "constant.numeric",
+        "settings": {
+          "foreground": "#f9b249"
+        }
+      },
+      {
+        "name": "Math symbols $$",
+        "scope": [
+          "keyword.control.import.math.begin.quarto",
+          "keyword.control.import.math.end.quarto"
+        ],
+        "settings": {
+          "foreground": "#23272E"
+        }
+      },
+      {
+        "name": "Math text",
+        "scope": "meta.embedded.math.quarto",
+        "settings": {
+          "foreground": "#687288"
+        }
+      },
+      {
+        "name": "Math symbol text",
+        "scope": [
+          "constant.character.math.tex",
+          "constant.other.general.math.tex",
+          "punctuation.definition.constant.math.tex"
+        ],
+        "settings": {
+          "foreground": "#687288"
+        }
+      },
+      {
+        "name": "Math numbers",
+        "scope": "constant.numeric.math.tex",
+        "settings": {
+          "foreground": "#687288"
+        }
+      },
+      {
+        "name": "Math function text",
+        "scope": [
+          "entity.name.function.math.tex",
+          "punctuation.definition.function.math.tex"
+        ],
+        "settings": {
+          "foreground": "#3f76a0"
+        }
+      },
+      {
+        "name": "Math brackets",
+        "scope": [
+          "punctuation.math.begin.bracket.round",
+          "punctuation.math.end.bracket.round"
+        ],
+        "settings": {
+          "foreground": "#f90820"
+        }
+      },
+    ]
+  },
+  // COMMENT BOX
+  "commentBox.styles": {
+    "defaultStyle": {
+      "capitalize": false,
+      "ignoreInnerIndentation": false,
+      "ignoreOuterIndentation": false,
+      "removeEmptyLines": false,
+      "textAlignment": "left",
+      "commentStartToken": "",
+      "commentEndToken": "##",
+      "leftEdgeToken": "## ",
+      "rightEdgeToken": " ##",
+      "topEdgeToken": "#",
+      "bottomEdgeToken": "#",
+      "topRightToken": "###",
+      "bottomLeftToken": "####"
+    }
+  },
+  // REGION FOLDING
+  "maptz.regionfolder": {
+    "[r]": { //Language selector
+      "foldEnd": "## ----end", //Text inserted at end
+      "foldEndRegex": "(.*)----end(.*)", //Regex used to find fold end text.
+      "foldStart": "## ---- [NAME]", //Text inserted at the start NAME denotes where cursor is placed
+      "foldStartRegex": "(.*) ---- (.*)", //Regex used to find fold start text.
+      "disableFolding": false //Turn off #region folding for this language
+    }
+  },
+  // SPELLCHECK (easier to select from extension settings)
+  "cSpell.enabledLanguageIds": [
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "elixir",
+    "erlang",
+    "git-commit",
+    "go",
+    "graphql",
+    "handlebars",
+    "haskell",
+    "html",
+    "jade",
+    "java",
+    "javascript",
+    "javascriptreact",
+    "jupyter",
+    "latex",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "python",
+    "pug",
+    "restructuredtext",
+    "rust",
+    "scala",
+    "scss",
+    "scminput",
+    "swift",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "yaml",
+    "yml"
+  ],
+  "cSpell.enableFiletypes": [
+    "!R",
+    "!asciidoc",
+    "!c",
+    "!json",
+    "!jsonc",
+    "!r",
+    "quarto",
+    "rmd",
+    "qmd"
+  ],
+  "workbench.startupEditor": "none",
+  "cSpell.userWords": [
+    "acellular",
+    "coenosteum",
+    "collines",
+    "colour",
+    "corallites",
+    "corallum",
+    "Costae",
+    "covariates",
+    "scleractinian",
+    "scleractinians",
+    "summarise"
+  ],
+  "cSpell.ignoreWords": [
+    "autofix"
+  ],
+  "editor.accessibilitySupport": "off",
+  "vscode-color-picker.languages": [
+    "r",
+    "R",
+    "quarto",
+    "qmd",
+    "rmarkdown",
+    "rmd",
+    "python",
+    "javascript",
+    "typescript"
+  ],
+  "explorer.compactFolders": false,
+  "r.lsp.diagnostics": false,
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "python.defaultInterpreterPath": "C:\\Users\\bford\\AppData\\Local\\Programs\\mambaforge\\python.exe",
+  "python.globalModuleInstallation": true,
+  "jupyter.askForKernelRestart": false,
+  "python.venvPath": "C:\\Users\\bford\\AppData\\Local\\miniconda3\\envs",
+  "r.rterm.windows": "C:\\Users\\bford\\AppData\\Local\\Programs\\mambaforge\\Scripts\\radian.exe",
+  "jupyter.widgetScriptSources": [
+    "jsdelivr.com",
+    "unpkg.com"
+  ],
+  "editor.guides.bracketPairs": true,
+  "cSpell.checkOnlyEnabledFileTypes": false,
+  "quarto.visualEditor.spellingDictionary": "en_AU",
+  "[quarto]": {
+    "editor.suggest.showSnippets": true,
+    "editor.snippetSuggestions": "inline"
+  },
+  "editor.quickSuggestions": {
+    "other": "inline"
+  },
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.tabCompletion": "on",
+  "terminal.integrated.scrollback": 5000,
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.external.windowsExec": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.17.11461.0_x64__8wekyb3d8bbwe\\wt.exe",
+  "python.experiments.enabled": false,
+  "python.terminal.activateEnvironment": false,
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "[shellscript]": {
+    "files.eol": "\n",
+    "editor.unfoldOnClickAfterEndOfLine": false
+  },
+  "workbench.layoutControl.enabled": false,
+  "window.newWindowDimensions": "inherit",
+  "terminal.explorerKind": "external",
+  "terminal.integrated.fontFamily": "Hack NF",
+  "cSpell.language": "en,en-AU",
+  "cSpell.maxNumberOfProblems": 1000,
+  "betterFolding.showFoldedBrackets": false,
+  "betterFolding.showFunctionParameters": false,
+  "betterFolding.showObjectPreviews": false,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "editor.formatOnSaveMode": "modifications",
+  "markdown.preview.fontSize": 20,
+  "window.commandCenter": false,
+  "scribeai.ApiKey": "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",
+  "r.plot.useHttpgd": true,
+  "gitlens.graph.minimap.additionalTypes": [
+    "localBranches",
+    "stashes",
+    "remoteBranches",
+    "tags"
+  ],
+  "gitlens.graph.layout": "editor",
+  "workbench.colorTheme": "Eva Light",
+  "workbench.activityBar.location": "hidden",
+  "terminal.integrated.tabs.location": "left",
+  "quarto.render.previewType": "external",
+}
