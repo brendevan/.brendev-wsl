@@ -2,14 +2,15 @@
 #               GIT
 # ================================
 # ERASE file from history
-git-erase-force () {
-  echo "WARNING! This function has not been properly tested. You should probably backup your repo just in case. ANY UNADDED, UNCOMMITTED, UNPUSHED, & STASHED WILL BE LOST FOREVER!"
-  read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
-  if [ ! "$1" ]
-    then echo "Error: path/to/file/to/erase is required. E.g. git-erase-file resources/large_file.pdf"
-    else git-filter-repo --invert-paths --force --path $1
-  fi
-}
+# GOT FED UP WITH git-filter-repo, IMPLEMENT WITH BFG INSTEAD.
+# git-erase-force () {
+#   echo "WARNING! This function has not been properly tested. You should probably backup your repo just in case. ANY UNADDED, UNCOMMITTED, UNPUSHED, & STASHED WILL BE LOST FOREVER!"
+#   read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+#   if [ ! "$1" ]
+#     then echo "Error: path/to/file/to/erase is required. E.g. git-erase-file resources/large_file.pdf"
+#     else git-filter-repo --invert-paths --force --path $1
+#   fi
+# }
 # AUDIT (list) all files in history
 alias git-audit='git log --pretty=format: --name-only --diff-filter=A  | sort -u'
 
