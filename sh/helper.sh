@@ -36,7 +36,11 @@ msg-stop () {
 bdev-export () {
   msg "\n🦈 Setting BDEV environment variable to $1"
   EXPORT_BDEV="export BDEV=$1"
+  # Export BDEV for current shell
   eval $EXPORT_BDEV
+  # Export BDEV in bashrc for all future shells 
+  # (after deleting previous export BDEV bashrc lines)
+  sed -i '/export BDEV=/d' dotfiles/.bashrc
   echo -e  $EXPORT_BDEV | \
     sudo tee -a $HOME/.brendev-wsl/dotfiles/.bashrc
 }
@@ -61,4 +65,19 @@ bdev-cleanup () {
 }
 bdev-install-rpackages () {
   sudo Rscript $BDEV/r/install_packages.r
+}
+
+# ============================================
+#                VSCODE
+# ============================================
+# Install extensions listed in single array as argument
+# e.g.  ext_list = (ext_id1 ext_id2)
+#       vscode-install-extensions "${ext_list[@]}"
+vscode-install-extensions () {
+  extension_list=("$@")
+  for ext in "${extension_list[@]}";
+    do
+      # Note: --force updates extension if it is already installed
+      code --install-extension $ext --force
+    done 
 }

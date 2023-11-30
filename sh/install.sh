@@ -1,13 +1,10 @@
 #!/bin/bash
 source $BDEV/sh/helper.sh
-
-
-
 msg "\n🦑 INSTALLING SOFTWARE"
 
-# ===================
-#    apt packages
-# ===================
+# ======================================
+#             Apt packages
+# ======================================
 msg "   - apt packages"
 sudo apt-get update -y  && sudo apt-get install -y  \
   curl                                              \
@@ -17,15 +14,9 @@ sudo apt-get update -y  && sudo apt-get install -y  \
   python3-pip                                       \
   zsh                                       
 
-
-# ===================
-#        git
-# ===================
-
-
-# ===================
-#     oh-my-zsh
-# ===================
+# ======================================
+#               Oh-my-zsh
+# ======================================
 # oh-my-zsh
 msg "   - oh-my-zsh and plugins"
 yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -33,15 +24,9 @@ yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/mast
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-# ===================
-#       codium
-# ===================
-msg "   - (VS)codium"
-sudo snap install codium --classic
-
-# ===================
-#          R
-# ===================
+# ======================================
+#                   R
+# ======================================
 # R language
 msg "   - R"
 yes | sudo bash $BDEV/sh/install_r.sh
@@ -52,9 +37,9 @@ pip3 install -U radian
 # msg "   - R packages (this might take a while)"; sleep 2
 # yes | sudo Rscript $BDEV/r/install_packages.r --install-missing   # install missing r packages
 
-# ===================
-#       quarto
-# ===================
+# ======================================
+#                Quarto
+# ======================================
 # jupyter  (used by quarto)                   ****REMOVED SUDO, NOT YET TESTED
 msg "   - jupyter"
 pip3 install -U jupyter                       
@@ -69,7 +54,11 @@ if ! quarto check --quiet; then
 fi
 quarto check
 
-
+# ======================================
+#           VS code extensions
+# ======================================
+msg "   - vs code extensions"
+sudo bash $BDEV/sh/vscode.sh
 
 
 # ===================

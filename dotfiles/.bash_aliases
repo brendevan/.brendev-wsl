@@ -1,26 +1,37 @@
 # ================================
 #               GIT
 # ================================
-# ERASE file from history
-# GOT FED UP WITH git-filter-repo, IMPLEMENT WITH BFG INSTEAD.
-# git-erase-force () {
-#   echo "WARNING! This function has not been properly tested. You should probably backup your repo just in case. ANY UNADDED, UNCOMMITTED, UNPUSHED, & STASHED WILL BE LOST FOREVER!"
-#   read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
-#   if [ ! "$1" ]
-#     then echo "Error: path/to/file/to/erase is required. E.g. git-erase-file resources/large_file.pdf"
-#     else git-filter-repo --invert-paths --force --path $1
-#   fi
-# }
-# AUDIT (list) all files in history
+# GIT-AUDIT: list all files in history 
 alias git-audit='git log --pretty=format: --name-only --diff-filter=A  | sort -u'
 
 # ================================
 #               BDEV
 # ================================
 
-alias bdev-relinkDotfiles='
-  bash $BDEV/sh/link_dotfiles.sh
-'
+# ====> BDEV-DOTFILES-*
+# BDEV-DOTFILE-RELINK: rerun the dotfiles script (creates symlinks to dotfiles in BDEV/dotfiles)
+alias bdev-dotfiles-reconfig='bash $BDEV/sh/link_dotfiles.sh'
+
+# ====> BDEV-VSCODE-*
+alias bdev-vscode-reconfig='bash $BDEV/sh/vscode.sh'
+
+
+# ================================
+#          VSCODE/CODIUM
+# ================================
+alias code-extensions-dir='code --extensions-dir'
+alias code-list-extensions='code --list-extensions'
+
+
+
+
+
+
+
+
+
+
+
 
 
 
