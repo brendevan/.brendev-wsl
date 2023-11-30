@@ -17,6 +17,8 @@ BDEV="$HOME/.brendev-wsl"
 # =====================
 #        START 
 # =====================
+# Log into sudo
+sudo :
 # Load helper functions
 source $BDEV/sh/helper.sh
 # Cleanup temp files left from previous failed runs

@@ -1,3 +1,4 @@
+sudo: :: command not found
 [H[2J[3J[0;36m=======================================================
  🐟 SETTING UP BREN(dan's)DEV(elopment environment) 🐟 
 =======================================================
@@ -23,14 +24,16 @@ export BDEV=/home/brendan/.brendev-wsl
 [0;34m   - apt packages[0m
 
 Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
-Hit:2 https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/ InRelease
-Get:3 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [991 kB]
-Hit:4 http://archive.ubuntu.com/ubuntu jammy InRelease
-Hit:5 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
-Get:6 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [800 kB]
-Get:7 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [149 kB]
-Hit:8 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
-Fetched 2050 kB in 11s (195 kB/s)
+Hit:2 http://archive.ubuntu.com/ubuntu jammy InRelease
+Get:3 https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/ InRelease [3626 B]
+Get:4 https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/ Packages [41.2 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
+Hit:6 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+Get:7 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [1211 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [1185 kB]
+Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1009 kB]
+Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [224 kB]
+Fetched 3902 kB in 4s (901 kB/s)
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -41,7 +44,7 @@ pandoc is already the newest version (2.9.2.1-3ubuntu2).
 curl is already the newest version (7.81.0-1ubuntu1.14).
 git is already the newest version (1:2.34.1-1ubuntu1.10).
 python3-pip is already the newest version (22.0.2+dfsg-1ubuntu0.4).
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
 [H[2J[3J[0;36m=======================================================
  🐟 SETTING UP BREN(dan's)DEV(elopment environment) 🐟 
 =======================================================
@@ -50,23 +53,20 @@ python3-pip is already the newest version (22.0.2+dfsg-1ubuntu0.4).
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-[0;34m   - git-repo-filter[0m
-
-Defaulting to user installation because normal site-packages is not writeable
-Requirement already satisfied: git-filter-repo in /usr/local/lib/python3.10/dist-packages (2.38.0)
-[H[2J[3J[0;36m=======================================================
- 🐟 SETTING UP BREN(dan's)DEV(elopment environment) 🐟 
-=======================================================
-
-🦈 Setting BDEV environment variable to /home/brendan/.brendev-wsl
-
-🦑 INSTALLING SOFTWARE
-   - apt packages
-   - git-repo-filter
 [0;34m   - oh-my-zsh and plugins[0m
 
 The $ZSH folder already exists (/home/brendan/.oh-my-zsh).
-You'll need to remove it if you want to reinstall.
+
+You ran the installer with the $ZSH setting or the $ZSH variable is
+exported. You have 3 options:
+
+1. Unset the ZSH variable when calling the installer:
+   `ZSH= sh install.sh`
+2. Install Oh My Zsh to a directory that doesn't exist yet:
+   `ZSH=path/to/new/ohmyzsh/folder sh install.sh`
+3. (Caution) If the folder doesn't contain important information,
+   you can just remove it with `rm -r /home/brendan/.oh-my-zsh`
+
 fatal: destination path '/home/brendan/.oh-my-zsh/custom/plugins/zsh-autosuggestions' already exists and is not an empty directory.
 fatal: destination path '/home/brendan/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting' already exists and is not an empty directory.
 [H[2J[3J[0;36m=======================================================
@@ -77,22 +77,7 @@ fatal: destination path '/home/brendan/.oh-my-zsh/custom/plugins/zsh-syntax-high
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-[0;34m   - (VS)codium[0m
-
-snap "codium" is already installed, see 'snap help refresh'
-[H[2J[3J[0;36m=======================================================
- 🐟 SETTING UP BREN(dan's)DEV(elopment environment) 🐟 
-=======================================================
-
-🦈 Setting BDEV environment variable to /home/brendan/.brendev-wsl
-
-🦑 INSTALLING SOFTWARE
-   - apt packages
-   - git-repo-filter
-   - oh-my-zsh and plugins
-   - (VS)codium
 [0;34m   - R[0m
 
 Reading package lists...
@@ -100,7 +85,7 @@ Building dependency tree...
 Reading state information...
 dirmngr is already the newest version (2.2.27-3ubuntu2.1).
 software-properties-common is already the newest version (0.99.22.8).
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQENBEy9tcUBCACnWQfqdrcz7tQL/iCeWDYSYPwXpPMUMLE721HfFH7d8ErunPKP
@@ -138,8 +123,8 @@ EXG+vo+j5qnz77TghahivkZip3FwW5APP+/8fWrQRSMzBToFWGZuLri4uef+P/7D
 2jiqon7LxHKcTkL+MajTgwrtuH5bI7hL2445uew=
 =xbQ3
 -----END PGP PUBLIC KEY BLOCK-----
-Hit:1 http://security.ubuntu.com/ubuntu jammy-security InRelease
-Hit:2 https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/ InRelease
+Hit:1 https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/ InRelease
+Hit:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
 Hit:3 http://archive.ubuntu.com/ubuntu jammy InRelease
 Hit:4 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
 Hit:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
@@ -157,7 +142,7 @@ Reading package lists...
 Building dependency tree...
 Reading state information...
 r-base is already the newest version (4.3.2-1.2204.0).
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
 [H[2J[3J[0;36m=======================================================
  🐟 SETTING UP BREN(dan's)DEV(elopment environment) 🐟 
 =======================================================
@@ -166,9 +151,7 @@ r-base is already the newest version (4.3.2-1.2204.0).
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
 [0;34m   - radian console for R[0m
 
@@ -178,8 +161,8 @@ Requirement already satisfied: prompt-toolkit<3.1,>=3.0.41 in /usr/local/lib/pyt
 Requirement already satisfied: rchitect<0.5.0,>=0.4.3 in /usr/local/lib/python3.10/dist-packages (from radian) (0.4.4)
 Requirement already satisfied: pygments>=2.5.0 in /usr/local/lib/python3.10/dist-packages (from radian) (2.17.2)
 Requirement already satisfied: wcwidth in /usr/local/lib/python3.10/dist-packages (from prompt-toolkit<3.1,>=3.0.41->radian) (0.2.12)
-Requirement already satisfied: cffi>=1.10.0 in /usr/local/lib/python3.10/dist-packages (from rchitect<0.5.0,>=0.4.3->radian) (1.16.0)
 Requirement already satisfied: six>=1.9.0 in /usr/lib/python3/dist-packages (from rchitect<0.5.0,>=0.4.3->radian) (1.16.0)
+Requirement already satisfied: cffi>=1.10.0 in /usr/local/lib/python3.10/dist-packages (from rchitect<0.5.0,>=0.4.3->radian) (1.16.0)
 Requirement already satisfied: pycparser in /usr/local/lib/python3.10/dist-packages (from cffi>=1.10.0->rchitect<0.5.0,>=0.4.3->radian) (2.21)
 [H[2J[3J[0;36m=======================================================
  🐟 SETTING UP BREN(dan's)DEV(elopment environment) 🐟 
@@ -189,48 +172,46 @@ Requirement already satisfied: pycparser in /usr/local/lib/python3.10/dist-packa
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
 [0;34m   - jupyter[0m
 
 Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: jupyter in /usr/local/lib/python3.10/dist-packages (1.0.0)
-Requirement already satisfied: ipykernel in /usr/local/lib/python3.10/dist-packages (from jupyter) (6.27.1)
 Requirement already satisfied: notebook in /usr/local/lib/python3.10/dist-packages (from jupyter) (7.0.6)
-Requirement already satisfied: ipywidgets in /usr/local/lib/python3.10/dist-packages (from jupyter) (8.1.1)
 Requirement already satisfied: qtconsole in /usr/local/lib/python3.10/dist-packages (from jupyter) (5.5.1)
+Requirement already satisfied: ipywidgets in /usr/local/lib/python3.10/dist-packages (from jupyter) (8.1.1)
+Requirement already satisfied: ipykernel in /usr/local/lib/python3.10/dist-packages (from jupyter) (6.27.1)
 Requirement already satisfied: jupyter-console in /usr/local/lib/python3.10/dist-packages (from jupyter) (6.6.3)
 Requirement already satisfied: nbconvert in /usr/local/lib/python3.10/dist-packages (from jupyter) (7.11.0)
-Requirement already satisfied: jupyter-client>=6.1.12 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (8.6.0)
 Requirement already satisfied: nest-asyncio in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (1.5.8)
-Requirement already satisfied: matplotlib-inline>=0.1 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (0.1.6)
-Requirement already satisfied: jupyter-core!=5.0.*,>=4.12 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (5.5.0)
-Requirement already satisfied: tornado>=6.1 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (6.3.3)
 Requirement already satisfied: comm>=0.1.1 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (0.2.0)
+Requirement already satisfied: debugpy>=1.6.5 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (1.8.0)
+Requirement already satisfied: ipython>=7.23.1 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (8.18.1)
+Requirement already satisfied: matplotlib-inline>=0.1 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (0.1.6)
+Requirement already satisfied: psutil in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (5.9.6)
 Requirement already satisfied: pyzmq>=20 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (25.1.1)
 Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (23.2)
-Requirement already satisfied: ipython>=7.23.1 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (8.18.1)
 Requirement already satisfied: traitlets>=5.4.0 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (5.14.0)
-Requirement already satisfied: debugpy>=1.6.5 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (1.8.0)
-Requirement already satisfied: psutil in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (5.9.6)
+Requirement already satisfied: jupyter-client>=6.1.12 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (8.6.0)
+Requirement already satisfied: tornado>=6.1 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (6.3.3)
+Requirement already satisfied: jupyter-core!=5.0.*,>=4.12 in /usr/local/lib/python3.10/dist-packages (from ipykernel->jupyter) (5.5.0)
 Requirement already satisfied: jupyterlab-widgets~=3.0.9 in /usr/local/lib/python3.10/dist-packages (from ipywidgets->jupyter) (3.0.9)
 Requirement already satisfied: widgetsnbextension~=4.0.9 in /usr/local/lib/python3.10/dist-packages (from ipywidgets->jupyter) (4.0.9)
 Requirement already satisfied: prompt-toolkit>=3.0.30 in /usr/local/lib/python3.10/dist-packages (from jupyter-console->jupyter) (3.0.41)
 Requirement already satisfied: pygments in /usr/local/lib/python3.10/dist-packages (from jupyter-console->jupyter) (2.17.2)
-Requirement already satisfied: tinycss2 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (1.2.1)
-Requirement already satisfied: bleach!=5.0.0 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (6.1.0)
-Requirement already satisfied: mistune<4,>=2.0.3 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (3.0.2)
-Requirement already satisfied: markupsafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (2.1.3)
-Requirement already satisfied: nbformat>=5.7 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (5.9.2)
-Requirement already satisfied: jupyterlab-pygments in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (0.3.0)
-Requirement already satisfied: defusedxml in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (0.7.1)
-Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (4.12.2)
-Requirement already satisfied: nbclient>=0.5.0 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (0.9.0)
 Requirement already satisfied: pandocfilters>=1.4.1 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (1.5.0)
+Requirement already satisfied: nbclient>=0.5.0 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (0.9.0)
+Requirement already satisfied: bleach!=5.0.0 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (6.1.0)
 Requirement already satisfied: jinja2>=3.0 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (3.1.2)
+Requirement already satisfied: jupyterlab-pygments in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (0.3.0)
+Requirement already satisfied: markupsafe>=2.0 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (2.1.3)
+Requirement already satisfied: mistune<4,>=2.0.3 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (3.0.2)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (4.12.2)
+Requirement already satisfied: defusedxml in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (0.7.1)
+Requirement already satisfied: nbformat>=5.7 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (5.9.2)
+Requirement already satisfied: tinycss2 in /usr/local/lib/python3.10/dist-packages (from nbconvert->jupyter) (1.2.1)
 Requirement already satisfied: jupyterlab-server<3,>=2.22.1 in /usr/local/lib/python3.10/dist-packages (from notebook->jupyter) (2.25.2)
 Requirement already satisfied: notebook-shim<0.3,>=0.2 in /usr/local/lib/python3.10/dist-packages (from notebook->jupyter) (0.2.3)
 Requirement already satisfied: jupyterlab<5,>=4.0.2 in /usr/local/lib/python3.10/dist-packages (from notebook->jupyter) (4.0.9)
@@ -238,29 +219,29 @@ Requirement already satisfied: jupyter-server<3,>=2.4.0 in /usr/local/lib/python
 Requirement already satisfied: qtpy>=2.4.0 in /usr/local/lib/python3.10/dist-packages (from qtconsole->jupyter) (2.4.1)
 Requirement already satisfied: webencodings in /usr/local/lib/python3.10/dist-packages (from bleach!=5.0.0->nbconvert->jupyter) (0.5.1)
 Requirement already satisfied: six>=1.9.0 in /usr/lib/python3/dist-packages (from bleach!=5.0.0->nbconvert->jupyter) (1.16.0)
-Requirement already satisfied: exceptiongroup in /usr/local/lib/python3.10/dist-packages (from ipython>=7.23.1->ipykernel->jupyter) (1.2.0)
 Requirement already satisfied: jedi>=0.16 in /usr/local/lib/python3.10/dist-packages (from ipython>=7.23.1->ipykernel->jupyter) (0.19.1)
 Requirement already satisfied: pexpect>4.3 in /usr/local/lib/python3.10/dist-packages (from ipython>=7.23.1->ipykernel->jupyter) (4.9.0)
 Requirement already satisfied: stack-data in /usr/local/lib/python3.10/dist-packages (from ipython>=7.23.1->ipykernel->jupyter) (0.6.3)
+Requirement already satisfied: exceptiongroup in /usr/local/lib/python3.10/dist-packages (from ipython>=7.23.1->ipykernel->jupyter) (1.2.0)
 Requirement already satisfied: decorator in /usr/local/lib/python3.10/dist-packages (from ipython>=7.23.1->ipykernel->jupyter) (5.1.1)
 Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.10/dist-packages (from jupyter-client>=6.1.12->ipykernel->jupyter) (2.8.2)
 Requirement already satisfied: platformdirs>=2.5 in /usr/local/lib/python3.10/dist-packages (from jupyter-core!=5.0.*,>=4.12->ipykernel->jupyter) (4.0.0)
 Requirement already satisfied: anyio>=3.1.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (4.1.0)
-Requirement already satisfied: argon2-cffi in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (23.1.0)
-Requirement already satisfied: jupyter-events>=0.9.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (0.9.0)
-Requirement already satisfied: overrides in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (7.4.0)
 Requirement already satisfied: terminado>=0.8.3 in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (0.18.0)
-Requirement already satisfied: prometheus-client in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (0.19.0)
-Requirement already satisfied: jupyter-server-terminals in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (0.4.4)
-Requirement already satisfied: websocket-client in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (1.6.4)
 Requirement already satisfied: send2trash>=1.8.2 in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (1.8.2)
-Requirement already satisfied: async-lru>=1.0.0 in /usr/local/lib/python3.10/dist-packages (from jupyterlab<5,>=4.0.2->notebook->jupyter) (2.0.4)
+Requirement already satisfied: overrides in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (7.4.0)
+Requirement already satisfied: jupyter-events>=0.9.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (0.9.0)
+Requirement already satisfied: jupyter-server-terminals in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (0.4.4)
+Requirement already satisfied: argon2-cffi in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (23.1.0)
+Requirement already satisfied: prometheus-client in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (0.19.0)
+Requirement already satisfied: websocket-client in /usr/local/lib/python3.10/dist-packages (from jupyter-server<3,>=2.4.0->notebook->jupyter) (1.6.4)
 Requirement already satisfied: tomli in /usr/local/lib/python3.10/dist-packages (from jupyterlab<5,>=4.0.2->notebook->jupyter) (2.0.1)
+Requirement already satisfied: async-lru>=1.0.0 in /usr/local/lib/python3.10/dist-packages (from jupyterlab<5,>=4.0.2->notebook->jupyter) (2.0.4)
 Requirement already satisfied: jupyter-lsp>=2.0.0 in /usr/local/lib/python3.10/dist-packages (from jupyterlab<5,>=4.0.2->notebook->jupyter) (2.2.1)
-Requirement already satisfied: json5>=0.9.0 in /usr/local/lib/python3.10/dist-packages (from jupyterlab-server<3,>=2.22.1->notebook->jupyter) (0.9.14)
 Requirement already satisfied: jsonschema>=4.18.0 in /usr/local/lib/python3.10/dist-packages (from jupyterlab-server<3,>=2.22.1->notebook->jupyter) (4.20.0)
-Requirement already satisfied: babel>=2.10 in /usr/local/lib/python3.10/dist-packages (from jupyterlab-server<3,>=2.22.1->notebook->jupyter) (2.13.1)
 Requirement already satisfied: requests>=2.31 in /usr/local/lib/python3.10/dist-packages (from jupyterlab-server<3,>=2.22.1->notebook->jupyter) (2.31.0)
+Requirement already satisfied: babel>=2.10 in /usr/local/lib/python3.10/dist-packages (from jupyterlab-server<3,>=2.22.1->notebook->jupyter) (2.13.1)
+Requirement already satisfied: json5>=0.9.0 in /usr/local/lib/python3.10/dist-packages (from jupyterlab-server<3,>=2.22.1->notebook->jupyter) (0.9.14)
 Requirement already satisfied: fastjsonschema in /usr/local/lib/python3.10/dist-packages (from nbformat>=5.7->nbconvert->jupyter) (2.19.0)
 Requirement already satisfied: wcwidth in /usr/local/lib/python3.10/dist-packages (from prompt-toolkit>=3.0.30->jupyter-console->jupyter) (0.2.12)
 Requirement already satisfied: soupsieve>1.2 in /usr/local/lib/python3.10/dist-packages (from beautifulsoup4->nbconvert->jupyter) (2.5)
@@ -268,27 +249,27 @@ Requirement already satisfied: sniffio>=1.1 in /usr/local/lib/python3.10/dist-pa
 Requirement already satisfied: idna>=2.8 in /usr/local/lib/python3.10/dist-packages (from anyio>=3.1.0->jupyter-server<3,>=2.4.0->notebook->jupyter) (3.6)
 Requirement already satisfied: typing-extensions>=4.0.0 in /usr/local/lib/python3.10/dist-packages (from async-lru>=1.0.0->jupyterlab<5,>=4.0.2->notebook->jupyter) (4.8.0)
 Requirement already satisfied: parso<0.9.0,>=0.8.3 in /usr/local/lib/python3.10/dist-packages (from jedi>=0.16->ipython>=7.23.1->ipykernel->jupyter) (0.8.3)
-Requirement already satisfied: referencing>=0.28.4 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (0.31.0)
 Requirement already satisfied: attrs>=22.2.0 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (23.1.0)
-Requirement already satisfied: rpds-py>=0.7.1 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (0.13.1)
 Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (2023.11.1)
+Requirement already satisfied: rpds-py>=0.7.1 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (0.13.1)
+Requirement already satisfied: referencing>=0.28.4 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (0.31.0)
 Requirement already satisfied: pyyaml>=5.3 in /usr/lib/python3/dist-packages (from jupyter-events>=0.9.0->jupyter-server<3,>=2.4.0->notebook->jupyter) (5.4.1)
 Requirement already satisfied: rfc3986-validator>=0.1.1 in /usr/local/lib/python3.10/dist-packages (from jupyter-events>=0.9.0->jupyter-server<3,>=2.4.0->notebook->jupyter) (0.1.1)
 Requirement already satisfied: rfc3339-validator in /usr/local/lib/python3.10/dist-packages (from jupyter-events>=0.9.0->jupyter-server<3,>=2.4.0->notebook->jupyter) (0.1.4)
 Requirement already satisfied: python-json-logger>=2.0.4 in /usr/local/lib/python3.10/dist-packages (from jupyter-events>=0.9.0->jupyter-server<3,>=2.4.0->notebook->jupyter) (2.0.7)
 Requirement already satisfied: ptyprocess>=0.5 in /usr/local/lib/python3.10/dist-packages (from pexpect>4.3->ipython>=7.23.1->ipykernel->jupyter) (0.7.0)
-Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.31->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (3.3.2)
 Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests>=2.31->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (2023.11.17)
 Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests>=2.31->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (2.1.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.31->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (3.3.2)
 Requirement already satisfied: argon2-cffi-bindings in /usr/local/lib/python3.10/dist-packages (from argon2-cffi->jupyter-server<3,>=2.4.0->notebook->jupyter) (21.2.0)
-Requirement already satisfied: executing>=1.2.0 in /usr/local/lib/python3.10/dist-packages (from stack-data->ipython>=7.23.1->ipykernel->jupyter) (2.0.1)
 Requirement already satisfied: pure-eval in /usr/local/lib/python3.10/dist-packages (from stack-data->ipython>=7.23.1->ipykernel->jupyter) (0.2.2)
+Requirement already satisfied: executing>=1.2.0 in /usr/local/lib/python3.10/dist-packages (from stack-data->ipython>=7.23.1->ipykernel->jupyter) (2.0.1)
 Requirement already satisfied: asttokens>=2.1.0 in /usr/local/lib/python3.10/dist-packages (from stack-data->ipython>=7.23.1->ipykernel->jupyter) (2.4.1)
-Requirement already satisfied: isoduration in /usr/local/lib/python3.10/dist-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (20.11.0)
-Requirement already satisfied: fqdn in /usr/local/lib/python3.10/dist-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (1.5.1)
 Requirement already satisfied: webcolors>=1.11 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (1.13)
 Requirement already satisfied: jsonpointer>1.13 in /usr/local/lib/python3.10/dist-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (2.4)
 Requirement already satisfied: uri-template in /usr/local/lib/python3.10/dist-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (1.3.0)
+Requirement already satisfied: fqdn in /usr/local/lib/python3.10/dist-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (1.5.1)
+Requirement already satisfied: isoduration in /usr/local/lib/python3.10/dist-packages (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (20.11.0)
 Requirement already satisfied: cffi>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from argon2-cffi-bindings->argon2-cffi->jupyter-server<3,>=2.4.0->notebook->jupyter) (1.16.0)
 Requirement already satisfied: pycparser in /usr/local/lib/python3.10/dist-packages (from cffi>=1.0.1->argon2-cffi-bindings->argon2-cffi->jupyter-server<3,>=2.4.0->notebook->jupyter) (2.21)
 Requirement already satisfied: arrow>=0.15.0 in /usr/local/lib/python3.10/dist-packages (from isoduration->jsonschema>=4.18.0->jupyterlab-server<3,>=2.22.1->notebook->jupyter) (1.3.0)
@@ -301,9 +282,7 @@ Requirement already satisfied: types-python-dateutil>=2.8.10 in /usr/local/lib/p
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
@@ -326,7 +305,7 @@ Requirement already satisfied: types-python-dateutil>=2.8.10 in /usr/local/lib/p
       Jupyter: 5.5.0
       Kernels: python3
 
-(|) Checking Jupyter engine render....(/) Checking Jupyter engine render....(-) Checking Jupyter engine render....(\) Checking Jupyter engine render....(|) Checking Jupyter engine render....(/) Checking Jupyter engine render....(-) Checking Jupyter engine render....(\) Checking Jupyter engine render....(|) Checking Jupyter engine render....(/) Checking Jupyter engine render....(-) Checking Jupyter engine render....(\) Checking Jupyter engine render....(|) Checking Jupyter engine render....(/) Checking Jupyter engine render....(-) Checking Jupyter engine render....(\) Checking Jupyter engine render....(|) Checking Jupyter engine render....(/) Checking Jupyter engine render....[2K[G[✓] Checking Jupyter engine render....OK
+(|) Checking Jupyter engine render....(/) Checking Jupyter engine render....(-) Checking Jupyter engine render....(\) Checking Jupyter engine render....(|) Checking Jupyter engine render....(/) Checking Jupyter engine render....(-) Checking Jupyter engine render....(\) Checking Jupyter engine render....(|) Checking Jupyter engine render....(/) Checking Jupyter engine render....(-) Checking Jupyter engine render....(\) Checking Jupyter engine render....(|) Checking Jupyter engine render....(/) Checking Jupyter engine render....(-) Checking Jupyter engine render....(\) Checking Jupyter engine render....(|) Checking Jupyter engine render....[2K[G[✓] Checking Jupyter engine render....OK
 
 (|) Checking R installation...........(/) Checking R installation...........[2K[G[✓] Checking R installation...........OK
       Version: 4.3.2
@@ -348,13 +327,30 @@ Requirement already satisfied: types-python-dateutil>=2.8.10 in /usr/local/lib/p
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+[0;34m   - vs code extensions[0m
+
+/home/brendan/.brendev-wsl/sh/vscode.sh: line 2: /sh/helper.sh: No such file or directory
+/home/brendan/.brendev-wsl/sh/vscode.sh: line 61: vscode-install-extensions: command not found
+/home/brendan/.brendev-wsl/sh/vscode.sh: line 62: vscode-install-extensions: command not found
+[H[2J[3J[0;36m=======================================================
+ 🐟 SETTING UP BREN(dan's)DEV(elopment environment) 🐟 
+=======================================================
+
+🦈 Setting BDEV environment variable to /home/brendan/.brendev-wsl
+
+🦑 INSTALLING SOFTWARE
+   - apt packages
+   - oh-my-zsh and plugins
+   - R
+   - radian console for R
+   - jupyter
+   - quarto
+   - vs code extensions
 [0;34m Finished installs! 🐳[0m
 
 [H[2J[3J[0;36m=======================================================
@@ -365,13 +361,12 @@ Requirement already satisfied: types-python-dateutil>=2.8.10 in /usr/local/lib/p
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 [0;34m
 🐡 SETTING UP DOTFILES (as symbolic links)[0m
@@ -384,13 +379,12 @@ Requirement already satisfied: types-python-dateutil>=2.8.10 in /usr/local/lib/p
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 
 🐡 SETTING UP DOTFILES (as symbolic links)
@@ -404,13 +398,12 @@ Requirement already satisfied: types-python-dateutil>=2.8.10 in /usr/local/lib/p
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 
 🐡 SETTING UP DOTFILES (as symbolic links)
@@ -425,13 +418,12 @@ Terminal:
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 
 🐡 SETTING UP DOTFILES (as symbolic links)
@@ -447,13 +439,12 @@ Terminal:
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 
 🐡 SETTING UP DOTFILES (as symbolic links)
@@ -470,13 +461,12 @@ Terminal:
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 
 🐡 SETTING UP DOTFILES (as symbolic links)
@@ -494,13 +484,12 @@ Terminal:
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 
 🐡 SETTING UP DOTFILES (as symbolic links)
@@ -519,13 +508,12 @@ Terminal:
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 
 🐡 SETTING UP DOTFILES (as symbolic links)
@@ -545,13 +533,12 @@ R:
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 
 🐡 SETTING UP DOTFILES (as symbolic links)
@@ -562,7 +549,7 @@ Terminal:
    - /home/brendan/.oh-my-zsh/themes/brendev.zsh-theme
 R:
    - /home/brendan/.Rprofile
-[0;34m(VS)code & codium:[0m
+[0;34m(VS)code:[0m
 
 [H[2J[3J[0;36m=======================================================
  🐟 SETTING UP BREN(dan's)DEV(elopment environment) 🐟 
@@ -572,13 +559,12 @@ R:
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 
 🐡 SETTING UP DOTFILES (as symbolic links)
@@ -589,9 +575,10 @@ Terminal:
    - /home/brendan/.oh-my-zsh/themes/brendev.zsh-theme
 R:
    - /home/brendan/.Rprofile
-(VS)code & codium:
-[0;34m   - /home/brendan/.code/settings.json[0m
+(VS)code:
+[0;34m   - /settings.json[0m
 
+ln: failed to create symbolic link '/settings.json': Permission denied
 [H[2J[3J[0;36m=======================================================
  🐟 SETTING UP BREN(dan's)DEV(elopment environment) 🐟 
 =======================================================
@@ -600,13 +587,12 @@ R:
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 
 🐡 SETTING UP DOTFILES (as symbolic links)
@@ -617,10 +603,11 @@ Terminal:
    - /home/brendan/.oh-my-zsh/themes/brendev.zsh-theme
 R:
    - /home/brendan/.Rprofile
-(VS)code & codium:
-   - /home/brendan/.code/settings.json
-[0;34m   - /home/brendan/.code/keybindings.json[0m
+(VS)code:
+   - /settings.json
+[0;34m   - /keybindings.json[0m
 
+ln: failed to create symbolic link '/keybindings.json': Permission denied
 [H[2J[3J[0;36m=======================================================
  🐟 SETTING UP BREN(dan's)DEV(elopment environment) 🐟 
 =======================================================
@@ -629,13 +616,12 @@ R:
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 
 🐡 SETTING UP DOTFILES (as symbolic links)
@@ -646,11 +632,12 @@ Terminal:
    - /home/brendan/.oh-my-zsh/themes/brendev.zsh-theme
 R:
    - /home/brendan/.Rprofile
-(VS)code & codium:
-   - /home/brendan/.code/settings.json
-   - /home/brendan/.code/keybindings.json
-[0;34m   - /home/brendan/.code/snippets.code-snippets[0m
+(VS)code:
+   - /settings.json
+   - /keybindings.json
+[0;34m   - /snippets/bdev.code-snippets[0m
 
+ln: failed to create symbolic link '/snippets/bdev.code-snippets': No such file or directory
 [H[2J[3J[0;36m=======================================================
  🐟 SETTING UP BREN(dan's)DEV(elopment environment) 🐟 
 =======================================================
@@ -659,13 +646,12 @@ R:
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 
 🐡 SETTING UP DOTFILES (as symbolic links)
@@ -676,10 +662,10 @@ Terminal:
    - /home/brendan/.oh-my-zsh/themes/brendev.zsh-theme
 R:
    - /home/brendan/.Rprofile
-(VS)code & codium:
-   - /home/brendan/.code/settings.json
-   - /home/brendan/.code/keybindings.json
-   - /home/brendan/.code/snippets.code-snippets
+(VS)code:
+   - /settings.json
+   - /keybindings.json
+   - /snippets/bdev.code-snippets
 [0;34mFinished dotfile setup! 🐳[0m
 
 [H[2J[3J[0;36m=======================================================
@@ -690,13 +676,12 @@ R:
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 
 🐡 SETTING UP DOTFILES (as symbolic links)
@@ -707,10 +692,10 @@ Terminal:
    - /home/brendan/.oh-my-zsh/themes/brendev.zsh-theme
 R:
    - /home/brendan/.Rprofile
-(VS)code & codium:
-   - /home/brendan/.code/settings.json
-   - /home/brendan/.code/keybindings.json
-   - /home/brendan/.code/snippets.code-snippets
+(VS)code:
+   - /settings.json
+   - /keybindings.json
+   - /snippets/bdev.code-snippets
 Finished dotfile setup! 🐳
 [0;34m
 FINISHED! 🐳[0m
@@ -723,13 +708,12 @@ FINISHED! 🐳[0m
 
 🦑 INSTALLING SOFTWARE
    - apt packages
-   - git-repo-filter
    - oh-my-zsh and plugins
-   - (VS)codium
    - R
    - radian console for R
    - jupyter
    - quarto
+   - vs code extensions
  Finished installs! 🐳
 
 🐡 SETTING UP DOTFILES (as symbolic links)
@@ -740,10 +724,10 @@ Terminal:
    - /home/brendan/.oh-my-zsh/themes/brendev.zsh-theme
 R:
    - /home/brendan/.Rprofile
-(VS)code & codium:
-   - /home/brendan/.code/settings.json
-   - /home/brendan/.code/keybindings.json
-   - /home/brendan/.code/snippets.code-snippets
+(VS)code:
+   - /settings.json
+   - /keybindings.json
+   - /snippets/bdev.code-snippets
 Finished dotfile setup! 🐳
 
 FINISHED! 🐳
