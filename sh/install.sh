@@ -21,9 +21,6 @@ sudo apt-get update -y  && sudo apt-get install -y  \
 # ===================
 #        git
 # ===================
-# git-filter-repo (remove files from commit history)
-msg "   - git-repo-filter"
-pip3 install -U git-filter-repo
 
 
 # ===================
