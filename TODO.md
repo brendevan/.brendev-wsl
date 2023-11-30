@@ -13,3 +13,13 @@
 * IF BUILD STARTS TO TAKE TO LONG: add checks to installs to see if stuff already exists, display what exists next to the terminal progress list item (e.g. `- apt packages (all already installed OR 18 of 23 already installed)`)
 
 * probably should clean up once reasonably stable in structure (e.g.  better installation process, better bdev function structure/names)
+
+* migrate all setup scripts into `bdev.sh`, where functions define different parts of the bdev-setup
+
+```bash
+# Example: 
+bdev-install-vscode-extensions () {
+  code to install extensions and print msgs etc here
+}
+```
+...then we can move stuff like vscode extensions list (currently in `vscode.sh`) into its own file (e.g. `.code_extensions`)
