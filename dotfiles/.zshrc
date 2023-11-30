@@ -73,6 +73,7 @@ ZSH_THEME="brendev"
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.bash_aliases
 
 # User configuration
 

@@ -1,7 +1,23 @@
+# ================================
+#               GIT
+# ================================
+# ERASE file from history
+git-erase () {
+  if [ ! "$1" ]
+    then echo "Error: path/to/file/to/erase is required. E.g. git-erase-file resources/large_file.pdf"
+    else git-filter-repo --invert-paths --path $1
+  fi
+}
+# AUDIT (list) all files in history
+alias git-audit='git log --pretty=format: --name-only --diff-filter=A  | sort -u'
+
+# ================================
+#               BDEV
+# ================================
+
 alias bdev-relinkDotfiles='
   bash $BDEV/sh/link_dotfiles.sh
 '
-
 
 
 
@@ -25,4 +41,6 @@ alias bdev-relinkDotfiles='
 #     echo "Error: missing DNS server string. Please pass the WiFi DNS Server as 'X.X.X.X' e.g. > bdev-addNameserver '192.32.254.143'"
 #   fi
 # }
+
+
 
