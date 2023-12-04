@@ -15,6 +15,17 @@ alias bdev-dotfiles-reconfig='bash $BDEV/sh/link_dotfiles.sh'
 # ====> BDEV-VSCODE-*
 alias bdev-vscode-reconfig='bash $BDEV/sh/vscode.sh'
 
+# ====> BDEV-R-*
+# Print bdev R packages not yet installed
+alias bdev-r-get-missing-pkgs='R -q --no-echo -e "source(file.path(\"$BDEV\", \"r\", \"install_packages.r\")); bdev.get.missing.packages()"'
+# Print installed bdev R packages
+alias bdev-r-get-installed-pkgs='R -q --no-echo -e "source(file.path(\"$BDEV\", \"r\", \"install_packages.r\")); bdev.get.installed.packages()"'
+# Print all installed R packages (incl. pkgs not listed here)
+alias bdev-r-get-installed-pkgs-all='R -q --no-echo -e "source(file.path(\"$BDEV\", \"r\", \"install_packages.r\")); bdev.get.installed.packages(which=\"all\")"'
+# Try to install all missing bdev R packages
+alias bdev-r-install-all-missing-pkgs='sudo R -q --no-echo -e "source(file.path(\"$BDEV\", \"r\", \"install_packages.r\")); bdev.install.packages(install=\"missing\")"'
+# Try to install next missing bdev R package
+alias bdev-r-install-next-missing-pkg='sudo R -q --no-echo -e "source(file.path(\"$BDEV\", \"r\", \"install_packages.r\")); bdev.install.packages(install=\"next\")"'
 
 # ================================
 #          VSCODE/CODIUM

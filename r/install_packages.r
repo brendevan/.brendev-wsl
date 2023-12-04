@@ -101,17 +101,43 @@ bdev.packages <<- c(
 # INSTALL MISSING PACKAGES
 # From: https://stackoverflow.com/questions/4090169/elegant-way-to-check-for-missing-packages-and-install-them
 # Note: If you put your code in a package and the packages you want to install dependencies, then they will automatically be installed when you install your package.
+bdev.get.installed.packages <- function (which="bdev", pkg_list=bdev.packages) {
+  if (which == "bdev") {
+    res <- pkg_list[(pkg_list %in% installed.packages()[,"Package"])]
+  } else if (which == "all") {
+    res <- installed.packages()[,"Package"]
+  }
+  return(sort(res))
+}
 bdev.get.missing.packages <- function (pkg_list=bdev.packages) {
   pkg_list[!(pkg_list %in% installed.packages()[,"Package"])]
 }
-bdev.install.missing.packages <- function (pkg_list=bdev.packages) {
-  missing_pkgs <- bdev.get.missing.packages(pkg_list)
-  if (length(missing_pkgs)) install.packages(missing_pkgs)
+bdev.install.packages <- function (install="missing", pkg_list=bdev.packages) {
+  if (install %in% c("missing", "next")) {
+    missing_pkgs <- bdev.get.missing.packages(pkg_list)
+    if (length(missing_pkgs)) {
+      if (install == "missing") {
+        install.packages(missing_pkgs)
+      }
+      if (install == "next") {
+        next_missing_pkg <- missing_pkgs[1]
+        message(paste("Installing", next_missing_pkg)); Sys.sleep(2)
+        install.packages(next_missing_pkg)
+        warnings()
+      }
+    }
+  } else if (install == "everything") {
+    install.packages(pkg_list)
+  } else {
+    stop("Argument `install` must be one of 'missing', 'next', 'everything' (i.e. install all missing pkgs, next missing pkg, or reinstall all bdev pkgs)")
+  }  
 }
+
 bdev.install.everything <- function (pkg_list=bdev.packages) {
   install.packages(pkg_list)
 }
 
+# Flag used to install packages from bash script
 if ("--install-missing" %in% commandArgs()) {
-  bdev.install.missing.packages(bdev.packages)
+  bdev.install.packages(bdev.packages)
 }
