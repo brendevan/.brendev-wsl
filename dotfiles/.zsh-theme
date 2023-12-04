@@ -5,17 +5,14 @@
 
 SYM_ICON='🐟'
 SYM_ICON_ERROR='🚩'
-COL_DIR='cyan'
-COL_GIT='blue'
-COL_GIT_DIRTY='yellow'
 
-PROMPT='%(?:$SYM_ICON :$SYM_ICON_ERROR )%F{cyan}%B%c%b%f'
+PROMPT='%(?:$SYM_ICON :$SYM_ICON_ERROR )%F{blue}%B%c%b%f'
 PROMPT+=' $(git_prompt_info)'
 
-ZSH_THEME_GIT_PROMPT_PREFIX='%F{blue}('
+ZSH_THEME_GIT_PROMPT_PREFIX='%F{cyan}('
 ZSH_THEME_GIT_PROMPT_SUFFIX=''
 ZSH_THEME_GIT_PROMPT_DIRTY=')%f%F{yellow} 🠊  %f'
-ZSH_THEME_GIT_PROMPT_CLEAN=')%f%F{blue} 🠊  %f'
+ZSH_THEME_GIT_PROMPT_CLEAN=')%f%F{cyan} 🠊  %f'
 
 # PROMPT PLACEHOLDERS (check values with print -P <placeholder>; e.g. print -P %d)
 # %n - username
