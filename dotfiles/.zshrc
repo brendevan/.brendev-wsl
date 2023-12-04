@@ -70,7 +70,11 @@ ZSH_THEME="brendev"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(
+  git 
+  zsh-syntax-highlighting 
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_aliases
@@ -100,3 +104,5 @@ source $HOME/.bash_aliases
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+

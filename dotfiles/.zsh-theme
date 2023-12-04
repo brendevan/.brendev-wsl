@@ -6,13 +6,13 @@ COL_DIR='cyan'
 COL_GIT='blue'
 COL_GIT_DIRTY='yellow'
 
-PROMPT="%(?:%{$fg_bold[green]%}%1{$SYM_ICON%} :%{$fg_bold[red]%}%1{$SYM_ICON_ERROR%} )%{$fg[$COL_DIR]%}%c%{$reset_color%}"
+PROMPT='%(?:$SYM_ICON :$SYM_ICON_ERROR )%F{cyan}%B%c%b%f'
 PROMPT+=' $(git_prompt_info)'
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[$COL_GIT]%}("
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[$COL_GIT]%})%{$fg[yellow]%}$SYM_PROMPT"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[$COL_GIT]%})%{$fg[blue]%}$SYM_PROMPT"
+ZSH_THEME_GIT_PROMPT_PREFIX='%F{blue}('
+ZSH_THEME_GIT_PROMPT_SUFFIX=''
+ZSH_THEME_GIT_PROMPT_DIRTY=')%f%F{yellow} 🠊  %f'
+ZSH_THEME_GIT_PROMPT_CLEAN=')%f%F{blue} 🠊  %f'
 
 # PROMPT PLACEHOLDERS (check values with print -P <placeholder>; e.g. print -P %d)
 # %n - username
