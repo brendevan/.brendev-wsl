@@ -12,7 +12,7 @@ PROMPT+=' $(git_prompt_info)'
 ZSH_THEME_GIT_PROMPT_PREFIX='%F{cyan}('
 ZSH_THEME_GIT_PROMPT_SUFFIX=''
 ZSH_THEME_GIT_PROMPT_DIRTY=')%f%F{yellow} 🠊  %f'
-ZSH_THEME_GIT_PROMPT_CLEAN=')%f%F{cyan} 🠊  %f'
+ZSH_THEME_GIT_PROMPT_CLEAN=')%f%F{blue} 🠊  %f'
 
 # PROMPT PLACEHOLDERS (check values with print -P <placeholder>; e.g. print -P %d)
 # %n - username
