@@ -8,6 +8,8 @@
 
 * rstan, cmdstanr, others?
 
+* radian customisation (prompt, startup message)
+
 * fonts?
 
 * IF BUILD STARTS TO TAKE TO LONG: add checks to installs to see if stuff already exists, display what exists next to the terminal progress list item (e.g. `- apt packages (all already installed OR 18 of 23 already installed)`)
