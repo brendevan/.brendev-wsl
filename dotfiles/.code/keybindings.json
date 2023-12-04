@@ -6,6 +6,11 @@
         "when": "editorTextFocus"
     },
     {
+        "key": "ctrl+enter", 
+        "command": "r.runSelection",
+        "when": "editorTextFocus && editorLangId == 'sh'"
+    },
+    {
         "key":     "alt+`",
         "command": "workbench.action.focusActiveEditorGroup",
         "when":    "terminalFocus"

@@ -24,18 +24,7 @@ yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/mast
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-# ======================================
-#                   R
-# ======================================
-# R language
-msg "   - R"
-yes | sudo bash $BDEV/sh/install_r.sh
-# radian                                     ****REMOVED SUDO, NOT YET TESTED
-msg "   - radian console for R"
-pip3 install -U radian
-# # R packages
-# msg "   - R packages (this might take a while)"; sleep 2
-# yes | sudo Rscript $BDEV/r/install_packages.r --install-missing   # install missing r packages
+
 
 # ======================================
 #                Quarto

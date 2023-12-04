@@ -30,8 +30,8 @@ msg-start
 bdev-export "$BDEV"
 
 # Run setup scripts
-bdev-install
-bdev-dotfiles
+source $BDEV/modules/r.sh
+# bdev-dotfiles
 
 # Print final messages and cleanup (stop)
 msg "\nFINISHED! 🐳"

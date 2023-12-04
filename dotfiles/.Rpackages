@@ -1,0 +1,104 @@
+#!/bin/bash
+
+# TODO: Consider converting to renv (or storing array in environment variable?) (not urgent)
+
+# =====================================
+#              R PACKAGES
+# =====================================
+
+BDEV_R_PACKAGES=(
+
+  # =====================
+  #       Statistics
+  # =====================
+  # =====> General
+  'performance'	# Assess model quality
+  'survival'	  # Survival analysis in R
+  # =====> Bayesian
+  'bayesnec'	  # Beccy's bayesian no effect concentration modelling
+  'bayesplot'
+  'brms'
+  'cmdstanr'
+  'INLA'
+  'inlabru'	    # Spatial modelling with INLA	#spatial
+  'loo'	        # Leave-One-Out cross validation
+  'rjags'	      # Interface to JAGS
+  'rstan'		    # Interface to STAN
+  'rstantools'	# Tools for building R packages which interface with STAN	packages
+  'tidybayes'	  # Visualizations for Bayesian model validation	modelling	validation
+  # =====> Frequentist 
+  'DHARMa'
+  'glmmTMB'	    # Powerful frequentist modelling (GLMMs)
+  'lme4'        # Linear models
+  # ======================
+  #          Data 
+  # ======================
+  'janitor'	    # Data cleaning (incl. clean_names())
+  'lubridate'	  # Date manipulation
+  'readxl'	    # Read excel file formats	data
+  'tidyverse'	  # A CORE COLLECTION OF R PACKAGES	#core	
+  # =====================
+  #       Plotting
+  # =====================
+  'corrplot'		#data exploration
+  'dagitty'	    # Directed Acyclic Graphs (DAGs) #modelling
+  'GGally'	    # Extends ggplot	data viz	plots
+  'gganimate'
+  'ggdag'	      # Directed Acyclic Graphs (DAGs) #modelling
+  'ggh4x'	      # Extends ggplot (better facetting)
+  'ggpubr'	    # Arrange plots
+  'ggsci'	      # Color palettes based on science journals and sci-fi
+  'latex2exp'	  # Use latex to write plot labels
+  'leaflet'	    # Interactive maps	#widgets
+  'patchwork'	  # Arrange plots
+  'plotly'	    # Interactive ggplots	#widgets
+  # ======================
+  #        Tables
+  # ======================
+  'kableExtra'	  # Extends knitr::kable
+  'modelsummary'	# Model summary tables
+  'reactablefmtr' # Interactive tables	#widgets
+  # =======================
+  #     Marine Science
+  # =======================
+  'fishflux'	  # Model elemental fluxes in fishes	fish	
+  'fishualize'	# Color palettes based on teleost fishes	data viz	color palettes
+  'rfishbase'	  # Interface to fishbase	fish	
+  'rfishprod'	  # Model fish productivity	fish
+  # =======================
+  #        Spatial
+  # =======================
+  'geosphere'	  # Distance between coordinates (and more)
+  'ncdf4'	      # Netcdf file handling
+  'sf'	        # Simple features - a standardised way to encode spatial data
+  'terra'	      # Spatial data analysis
+  # ======================
+  #  Programming/General
+  # ======================
+  'conflicted'	# Handle function name conflicts
+  'colorDF'	    # Print DFs in color to terminal
+  'crayon'	    # Colored terminal output	terminal
+  'crosstalk'	  # Inter-widget interactivity #widgets
+  'curl'	      # libcurl C library for R
+  'furrr'	      # Mapping functions in parallel
+  'future'	    # Parallel and distributed processing
+  'glue'	      # Interpretted string literals
+  'here'	      # Project-based file referencing
+  'htmltools'	
+  'htmlwidgets' #widgets
+  'httpgd'	    # Internal plot viewing in vscode
+  'knitr'
+  'languageserver' # for vscode	
+  'learnr'	    # Interactive tutorials
+  'pkgdown'	    # Build R packages #packages
+  'quarto'
+  'remotes'	    # Get packages from non-CRAN repos #packages
+  'roxygen2'	  # Create documentation when building R packages	#packages
+  'rlang'	      # Collection of frameworks and APIs for R programming
+  'tarchetypes'	# Extends targets (e.g. render quarto documents from pipline)	targets	
+  'targets'     # Efficient and smart modelling (and other) pipelines
+  'testthat'	  # Unit testing	#packages
+  'tinytex'	    # Latex for R	other
+  'utf8'	      # Unicode text processing	other	
+  # =========END============
+)
