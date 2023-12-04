@@ -1,7 +1,10 @@
-SYM_ICON='🐟'         # 🦑 🐙 🐠 🐟 🐡 🦈 🐬 🐳 🐋
-SYM_ICON_ERROR='🚩'   # 
-SYM_PROMPT=' 🠊 '      # ❯ ▶ 🠊 🠖 ⯮ ⮚ 🠶
+# ALTERNATE SYMBOLS
+# STYLE:    🦑 🐙 🐠 🐟 🐡 🦈 🐬 🐳 🐋
+# ERROR:    🚩
+# PROMPT:   ❯ ▶ 🠊 🠖 ⯮ ⮚ 🠶
 
+SYM_ICON='🐟'
+SYM_ICON_ERROR='🚩'
 COL_DIR='cyan'
 COL_GIT='blue'
 COL_GIT_DIRTY='yellow'
