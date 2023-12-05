@@ -1,6 +1,4 @@
 #!/bin/bash
-source $BDEV/helpers/setup_helpers.sh 
-source $BDEV/helpers/r_helpers.sh 
 
 
 # # =====================================
@@ -30,7 +28,7 @@ source $BDEV/helpers/r_helpers.sh
 # =====================================
 #          INSTALL R PACKAGES
 # =====================================
-msg-h1 "INSTALLING R PACKAGES"
+msg-h1 "INSTALLING R PACKAGES\n"
 source $BDEV/dotfiles/.Rpackages
 # rpkgs-ensure-ppas
 echo $BDEV_R_PACKAGES
@@ -38,8 +36,7 @@ for PKG in "${BDEV_R_PACKAGES[@]}"
 do
   msg-rpkgs-new $PKG
   rpkgs-install $PKG
-  sleep(5)
-  if [ $(rpkgs-is-installed $PKG) = 0 ]
+  if rpkgs-is-installed $PKG
     then msg-rpkgs-success $PKG $(rpkgs-get-version $PKG)
     else msg-rpkgs-failure $PKG
   fi

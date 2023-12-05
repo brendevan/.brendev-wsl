@@ -25,3 +25,6 @@ bdev-install-vscode-extensions () {
 }
 ```
 ...then we can move stuff like vscode extensions list (currently in `vscode.sh`) into its own file (e.g. `.code_extensions`)
+
+
+* Add in `bdev-update-r` alias which updates r and packages. Then in main install script only install missing packages

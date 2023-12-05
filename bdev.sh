@@ -7,18 +7,29 @@
 # =========================
 #          ALIASES
 # =========================
-# User facing functions to be moved to .bdev_aliases
-bdev-build () {
-  if [ ! "$1" ]
-    then BDEV=$HOME/.brendev-wsl
-    else BDEV=$1/.brendev-wsl
-  fi
-  source $BDEV/sh/helper.sh
-  bdev-log "bash $BDEV/sh/main.sh"
+
+test () {
+  echo "$@"
 }
 
+
+# User facing functions to be moved to .bdev_aliases
 bdev-build () {
-  
+  source $BDEV/bdev.sh
+  # if [ ! "$1" ]
+  #   then BDEV=$HOME/.brendev-wsl
+  #   else BDEV=$1/.brendev-wsl
+  # fi
+  # source $BDEV/sh/helper.sh
+  # bdev-log 
+  msg-start
+  # source $BDEV/modules/apt.sh
+  # source $BDEV/modules/terminal.sh
+  source $BDEV/modules/r.sh
+
+
+
+  msg-stop
 }
 
 # ============================================
@@ -158,9 +169,8 @@ rpkgs-ensure-ppas () {
   fi
 }
 rpkgs-is-installed () {
-  CRAN_PKG_NAME="$1"
-  R_CALL="if ('$CRAN_PKG_NAME' %in% installed.packages()[,'Package']) cat(0) else cat(1)"
-  R -q --no-echo -e "$R_CALL"
+  R_CALL="if ('$1' %in% installed.packages()[,'Package']) cat(0) else cat(1)"
+  return $(R -q --no-echo -e "$R_CALL")
 }
 rpkgs-get-version () {
   CRAN_PKG_NAME="$1"
@@ -193,12 +203,13 @@ rpkgs-try-install-cran () {
 # MAIN INSTALL FUNCTION:
 rpkgs-install () {
   PKG_NAME="$1"
+  OLD_VERSION=""
 
   # Check if package is installed; if so, get version
   if rpkgs-is-installed $PKG_NAME 
     then 
       OLD_VERSION=$(rpkgs-get-version $PKG_NAME)
-      echo "$PKG_NAME version $OLD_VERSION already installed, attempting to update...\n"
+      echo "$PKG_NAME version $OLD_VERSION already installed, attempting to update..."
     else
       echo "Attempting to install $PKG_NAME"
   fi
@@ -209,14 +220,14 @@ rpkgs-install () {
   elif rpkgs-try-install-cran $PKG_NAME; then 
     INSTALLED_WITH="R from CRAN repository"    
   else 
-    if [ $OLD_VERSION ]; then
+    if [ "$OLD_VERSION" ]; then
       echo "\nFailed to update $PKG_NAME"
     else 
       echo "\nFailed to install $PKG_NAME"
+      sleep 2
+      return 1
     fi
-    return 1
   fi
-
   # Print success message
   if [ $OLD_VERSION ]; then 
     NEW_VERSION=$(rpkgs-get-version $PKG_NAME) 
@@ -227,6 +238,6 @@ rpkgs-install () {
   else 
     echo "\nSuccess! $PKG_NAME version $(rpkgs-get-version $PKG_NAME) installed with $INSTALLED_WITH."
   fi
-
+  sleep 2
   return 0
 }
