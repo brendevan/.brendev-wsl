@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# =========================================================
+#             VSCODE THEMES TO INSTALL
+# =========================================================
+themes=(                                \
+  fisheva.eva-theme                     \
+  zhuangtongfa.Material-theme           \
+  andrewm098.OneLight-Pro               \
+  wangweixuan.yithemes
+)

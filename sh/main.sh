@@ -29,8 +29,13 @@ msg-start
 # Export path to .brendev-wsl as environment variable (persist by adding to .bashrc)
 bdev-export "$BDEV"
 
+msg "\n🦑 INSTALLING SOFTWARE"
+
 # Run setup scripts
 source $BDEV/modules/r.sh
+
+
+msg " Finished installs! 🐳"
 # bdev-dotfiles
 
 # Print final messages and cleanup (stop)

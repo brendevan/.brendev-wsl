@@ -1,8 +1,7 @@
 #!/bin/bash
-source $BDEV/sh/helper.sh
 
 # =========================================================
-#             EXTENSIONS & THEMES TO INSTALL
+#             VSCODE EXTENSIONS TO INSTALL
 # =========================================================
 extensions=(                            \
   # ===== Editor =====
@@ -48,15 +47,3 @@ extensions=(                            \
   # ===== Docker =====
   ms-azuretools.vscode-docker
 )
-themes=(                                \
-  fisheva.eva-theme                     \
-  zhuangtongfa.Material-theme           \
-  andrewm098.OneLight-Pro               \
-  wangweixuan.yithemes
-)
-
-# =========================================================
-#            INSTALL EXTENSIONS & THEMES
-# =========================================================
-vscode-install-extensions "${extensions[@]}"
-vscode-install-extensions "${themes[@]}"

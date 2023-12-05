@@ -10,6 +10,7 @@ CODE_DFF=$HOME/.config/Code/User
 # ====================================
 #          DOTFILES TO SETUP 
 # ====================================
+# Where to store symbolic link to dotfile:
 BASHRC=$HOME/.bashrc
 BASH_ALIASES=$HOME/.bash_aliases
 ZSHRC=$HOME/.zshrc
