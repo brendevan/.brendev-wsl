@@ -28,3 +28,5 @@ bdev-install-vscode-extensions () {
 
 
 * Add in `bdev-update-r` alias which updates r and packages. Then in main install script only install missing packages
+
+* Add msg's for system packages (like R packages)

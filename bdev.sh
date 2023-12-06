@@ -119,9 +119,9 @@ msg-rpkgs-success () {
   MSG=$(<$MSG_TEMP_FILE)
   # Display message (no newline)
   clear
-  echo -e "${CYAN}$MSG ${GREEN}$1 ($2)"
+  echo -e "${CYAN}$MSG ${GREEN}$1 ($2)$"
   # Write additions to file
-  MSG="$MSG ${GREEN}$1 ($2)"
+  MSG="$MSG ${GREEN}$1 ($2)${NOCOL}"
   echo -e "$MSG" > $MSG_TEMP_FILE
 }
 msg-rpkgs-failure () {
@@ -129,9 +129,9 @@ msg-rpkgs-failure () {
   MSG=$(<$MSG_TEMP_FILE)
   # Display message (no newline)
   clear
-  echo -e "${CYAN}$MSG ${RED}$1"
+  echo -e "${CYAN}$MSG ${RED}$1$"
   # Write additions to file
-  MSG="$MSG ${RED}$1"
+  MSG="$MSG ${RED}$1${NOCOL}"
   echo -e "$MSG" > $MSG_TEMP_FILE
 }
 

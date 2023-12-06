@@ -27,9 +27,10 @@ BDEV_R_PACKAGES=(
   'rstantools'	# Tools for building R packages which interface with STAN	packages
   'tidybayes'	  # Visualizations for Bayesian model validation	modelling	validation
   # =====> Frequentist 
-  'DHARMa'
+  'DHARMa'      # Simulated residual diagnostics
   'glmmTMB'	    # Powerful frequentist modelling (GLMMs)
   'lme4'        # Linear models
+  'mvabund'     # Multivariate abundance analyses
   # ======================
   #          Data 
   # ======================

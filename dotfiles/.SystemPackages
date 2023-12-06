@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# =====================================
+#            SYSTEM PACKAGES
+# =====================================
+
+BDEV_SYS_PACKAGES=(
+  curl               \
+  git                \
+  gdebi-core         \
+  libgsl0-dev        \  # GNU GSL library - required for the R pkg mvabund (via rcppgsl)
+  moreutils          \
+  pandoc             \
+  python3-pip           # For radian console
+)

@@ -29,7 +29,7 @@
 #          INSTALL R PACKAGES
 # =====================================
 msg-h1 "INSTALLING R PACKAGES\n"
-source $BDEV/dotfiles/.Rpackages
+source $BDEV/dotfiles/.RPackages
 # rpkgs-ensure-ppas
 echo $BDEV_R_PACKAGES
 for PKG in "${BDEV_R_PACKAGES[@]}"
