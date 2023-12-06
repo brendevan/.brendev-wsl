@@ -1,5 +1,7 @@
+#!/bin/bash
+
 # ======================================
-#             System packages
+#         Install system packages
 # ======================================
 # The system packages are listed in dotfiles/.SystemPackages
 # Here we install them with apt-get
