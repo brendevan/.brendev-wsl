@@ -23,8 +23,8 @@ bdev-build () {
   # source $BDEV/sh/helper.sh
   # bdev-log 
   msg-start
-  # source $BDEV/modules/apt.sh
-  # source $BDEV/modules/terminal.sh
+  source $BDEV/modules/system.sh
+  source $BDEV/modules/terminal.sh
   source $BDEV/modules/r.sh
 
 
