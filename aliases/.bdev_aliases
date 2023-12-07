@@ -4,6 +4,16 @@
 # ====================================
 # From: https://gist.github.com/coltenkrauter/608cfe02319ce60facd76373249b8ca6
 
+
+# STILL NOT WORKING SOMETIMES
+# Deleting etc/resolv.conf and recreating seemed to work last time, but not why (https://github.com/microsoft/WSL/issues/5420) 
+# More here: https://github.com/microssoft/WSL/issues/3438
+# TRY: 
+#   - removing /etc/resolv.conf and recreating
+#   - chattr +i /etc/resolv.conf IS required
+#   - add only the single nameserver to /etc/resolv.conf
+#   - check /mnt/wsl/resolv.conf
+
 wsl-fix-connection () {
   echo "------------------------------"
   echo "        /etc/wsl.conf "
@@ -113,6 +123,7 @@ wsl-dns-get () {
     grep "DNS Servers" | \
     # Return just the WIFI DNS number X.X.X.X
     awk '{print $NF}' |
+    grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' |
     cat
 }
 wsl-clean-resolv-conf () {

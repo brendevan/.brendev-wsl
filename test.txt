@@ -1,5 +1,3 @@
-nameserver 10.10.32.50
-nameserver 10.10.72.50
-nameserver 192.168.86.43
+nameserver 192.168.45.83
 nameserver 192.168.45.83
 fec0:0:0:ffff::1%1
