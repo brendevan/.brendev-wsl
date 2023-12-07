@@ -23,11 +23,11 @@ bdev-build () {
   # source $BDEV/sh/helper.sh
   # bdev-log 
   msg-start
+  
   source $BDEV/modules/system.sh
   source $BDEV/modules/terminal.sh
   source $BDEV/modules/r.sh
-
-
+  source $BDEV/modules/dotfiles.sh
 
   msg-stop
 }
@@ -46,18 +46,14 @@ bdev-export () {
   echo -e  $EXPORT_BDEV | \
     sudo tee -a $HOME/.brendev-wsl/dotfiles/.bashrc
 }
-bdev-install () {
-  bash $BDEV/sh/install.sh
-}
 bdev-dotfiles () {
-  bash $BDEV/sh/dotfiles.sh
+  bash $BDEV/modules/dotfiles.sh
 }
 bdev-link-dotfile () {
   TARGET=$1
   LINK=$2
-  sleep 1
   msg "   - $LINK"
-  ln -sf $TARGET $LINK
+  sudo ln -sf $TARGET $LINK
 }
 bdev-log () {
   eval $1 2>&1 | tee .run-log.txt

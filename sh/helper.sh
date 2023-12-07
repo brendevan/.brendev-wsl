@@ -50,13 +50,7 @@ bdev-install () {
 bdev-dotfiles () {
   bash $BDEV/sh/dotfiles.sh
 }
-bdev-link-dotfile () {
-  TARGET=$1
-  LINK=$2
-  sleep 1
-  msg "   - $LINK"
-  ln -sf $TARGET $LINK
-}
+
 bdev-log () {
   eval $1 2>&1 | tee .run-log.txt
 }
