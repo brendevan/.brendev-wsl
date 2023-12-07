@@ -10,6 +10,7 @@ BDEV_SYS_PACKAGES=(
   curl                  \
   git                   \
   gdebi-core            \
+  libcairo2-dev         \   # httpgd^ dep
   libcurl4-openssl-dev  \   # languageserver^ dep
   libgsl-dev            \   # GNU GSL library - mvabund^ dep (via rcppgsl^)
   libssl-dev            \   # languageserver^ dep

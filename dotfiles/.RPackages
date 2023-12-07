@@ -14,7 +14,6 @@ BDEV_R_PACKAGES=(
   # =====> General
   'performance'	# Assess model quality
   'survival'	  # Survival analysis in R
-  'FactoMineR'  # Principal Components Analysis
   # =====> Bayesian
   'bayesnec'	  # Beccy's bayesian no effect concentration modelling
   'bayesplot'
@@ -46,6 +45,7 @@ BDEV_R_PACKAGES=(
   'dagitty'	    # Directed Acyclic Graphs (DAGs) #modelling
   'GGally'	    # Extends ggplot	data viz	plots
   'gganimate'
+  'ggbiplot'
   'ggdag'	      # Directed Acyclic Graphs (DAGs) #modelling
   'ggh4x'	      # Extends ggplot (better facetting)
   'ggpubr'	    # Arrange plots
@@ -66,7 +66,7 @@ BDEV_R_PACKAGES=(
   'fishflux'	  # Model elemental fluxes in fishes	fish	
   'fishualize'	# Color palettes based on teleost fishes	data viz	color palettes
   'rfishbase'	  # Interface to fishbase	fish	
-  'rfishprod'	  # Model fish productivity	fish
+  'renatoamorais/rfishprod'	  # Model fish productivity	fish
   # =======================
   #        Spatial
   # =======================
@@ -82,13 +82,15 @@ BDEV_R_PACKAGES=(
   'crayon'	    # Colored terminal output	terminal
   'crosstalk'	  # Inter-widget interactivity #widgets
   'curl'	      # libcurl C library for R
+  'devtools'
   'furrr'	      # Mapping functions in parallel
   'future'	    # Parallel and distributed processing
   'glue'	      # Interpretted string literals
   'here'	      # Project-based file referencing
   'htmltools'	
   'htmlwidgets' #widgets
-  'httpgd'	    # Internal plot viewing in vscode
+  # 'httpgd'	    # Internal plot viewing in vscode
+  'nx10/httpgd' # Server graphics device (plot within vscode)
   'knitr'
   'languageserver' # for vscode	
   'learnr'	    # Interactive tutorials

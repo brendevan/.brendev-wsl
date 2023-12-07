@@ -30,14 +30,10 @@
 # =====================================
 msg-h1 "INSTALLING R PACKAGES\n"
 source $BDEV/dotfiles/.RPackages
-# rpkgs-ensure-ppas
-echo $BDEV_R_PACKAGES
-for PKG in "${BDEV_R_PACKAGES[@]}"
-do
-  msg-rpkgs-new $PKG
-  rpkgs-install $PKG
-  if rpkgs-is-installed $PKG
-    then msg-rpkgs-success $PKG $(rpkgs-get-version $PKG)
-    else msg-rpkgs-failure $PKG
-  fi
+rpkgs-ensure-ppas
+
+# Remotes package required for installing from github
+rpkgs-install-and-msg remotes
+for PKG in "${BDEV_R_PACKAGES[@]}"; do
+  rpkgs-install-and-msg $PKG
 done

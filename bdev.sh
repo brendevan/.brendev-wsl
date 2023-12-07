@@ -169,12 +169,13 @@ rpkgs-ensure-ppas () {
   fi
 }
 rpkgs-is-installed () {
-  R_CALL="if ('$1' %in% installed.packages()[,'Package']) cat(0) else cat(1)"
+  PKG_NAME=${1#*'/'} 
+  R_CALL="if ('$PKG_NAME' %in% installed.packages()[,'Package']) cat(0) else cat(1)"
   return $(R -q --no-echo -e "$R_CALL")
 }
 rpkgs-get-version () {
-  CRAN_PKG_NAME="$1"
-  R_CALL="if ('$CRAN_PKG_NAME' %in% installed.packages()[, 'Package']){cat(installed.packages()['$CRAN_PKG_NAME', 'Version'])} else {cat('')}"
+  PKG_NAME=${1#*'/'} 
+  R_CALL="if ('$PKG_NAME' %in% installed.packages()[, 'Package']){cat(installed.packages()['$PKG_NAME', 'Version'])} else {cat('')}"
   R -q --no-echo -e "$R_CALL"
 }
 # Try install r package from crab2debian4ubuntu apt repo
@@ -185,7 +186,7 @@ rpkgs-try-install-apt () {
   IS_ON_APT=$(apt-cache search $APT_PKG_NAME)
   if [ IS_ON_APT ]; 
     then
-      echo "Installing R package $CRAN_PKG_NAME with apt ($APT_PKG_NAME)"
+      echo "Trying to install R package $CRAN_PKG_NAME with apt ($APT_PKG_NAME)"
       sudo apt-get install -y $APT_PKG_NAME
       return $?
     else 
@@ -194,50 +195,74 @@ rpkgs-try-install-apt () {
 }
 # Try installing r package with r from CRAN repo
 rpkgs-try-install-cran () {
-  CRAN_PKG_NAME=$1
-  R_CALL="install.packages($CRAN_PKG_NAME)"
-  echo "Installing R package $CRAN_PKG_NAME with R from CRAN"
-  R -e $R_CALL
-  return $?
+  R_CALL="install.packages('$1')"
+  echo "Trying to install R package $1 with R from CRAN"
+  sudo R -q -e $R_CALL
+  if rpkgs-is-installed $1
+    then return 0
+    else return 1
+  fi
 }
-# MAIN INSTALL FUNCTION:
+# Try installing r package with from github
+rpkgs-try-install-github () {
+  R_CALL="remotes::install_github('$1')"
+  echo "Trying to install R package $1 with R from Github"
+  sudo R -q -e $R_CALL
+  if rpkgs-is-installed $1
+    then return 0
+    else return 1
+  fi
+}
 rpkgs-install () {
-  PKG_NAME="$1"
+  PKG="$1"
   OLD_VERSION=""
 
   # Check if package is installed; if so, get version
-  if rpkgs-is-installed $PKG_NAME 
+  if rpkgs-is-installed $PKG 
     then 
-      OLD_VERSION=$(rpkgs-get-version $PKG_NAME)
-      echo "$PKG_NAME version $OLD_VERSION already installed, attempting to update..."
+      OLD_VERSION=$(rpkgs-get-version $PKG)
+      echo "$PKG version $OLD_VERSION already installed, attempting to update..."
     else
-      echo "Attempting to install $PKG_NAME"
+      echo "Attempting to install $PKG"
   fi
 
   # Try install with APT and if not successful try with R CRAN
-  if rpkgs-try-install-apt $PKG_NAME; then 
-    INSTALLED_WITH="apt (r-cran-$PKG_NAME)"
-  elif rpkgs-try-install-cran $PKG_NAME; then 
+  if [[ "$PKG" == */* ]] && rpkgs-try-install-github $PKG; then
+    INSTALLED_WITH="R from Github ($PKG)"
+  elif rpkgs-try-install-apt $PKG; then 
+    INSTALLED_WITH="apt (r-cran-$PKG)"
+  elif rpkgs-try-install-cran $PKG; then 
     INSTALLED_WITH="R from CRAN repository"    
   else 
     if [ "$OLD_VERSION" ]; then
-      echo "\nFailed to update $PKG_NAME"
+      echo "\nFailed to update $PKG"
     else 
-      echo "\nFailed to install $PKG_NAME"
-      sleep 2
+      echo "\nFailed to install $PKG"; sleep 2
       return 1
     fi
   fi
   # Print success message
   if [ $OLD_VERSION ]; then 
-    NEW_VERSION=$(rpkgs-get-version $PKG_NAME) 
+    NEW_VERSION=$(rpkgs-get-version $PKG) 
     if [ $OLD_VERSION = $NEW_VERSION ] 
-    then echo "The newest version of $PKG_NAME ($OLD_VERSION) is already installed."
-    else echo "\nSuccess! $PKG_NAME version $OLD_VERSION updated to version $NEW_VERSION with $INSTALLED_WITH."
+      then echo "The newest version of $PKG ($OLD_VERSION) is already installed."
+      else echo "\nSuccess! $PKG version $OLD_VERSION updated to version $NEW_VERSION with $INSTALLED_WITH."
     fi
   else 
-    echo "\nSuccess! $PKG_NAME version $(rpkgs-get-version $PKG_NAME) installed with $INSTALLED_WITH."
+    echo "\nSuccess! $PKG version $(rpkgs-get-version $PKG) installed with $INSTALLED_WITH."
   fi
-  sleep 2
   return 0
+}
+
+# MAIN INSTALL FUNCTION:
+rpkgs-install-and-msg () {
+  # PKG & PKG_NAME different when github repos are provided 
+  # E.g. PKG = nx10/httpgd   PKG_NAME = httpgd
+  PKG=$1
+  PKG_NAME=${PKG#*'/'} 
+  msg-rpkgs-new $PKG_NAME
+  if rpkgs-install $PKG; 
+    then msg-rpkgs-success $PKG_NAME $(rpkgs-get-version $PKG_NAME)
+    else msg-rpkgs-failure $PKG_NAME
+  fi
 }

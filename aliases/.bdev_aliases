@@ -11,7 +11,7 @@
 # TRY: 
 #   - removing /etc/resolv.conf and recreating
 #   - chattr +i /etc/resolv.conf IS required
-#   - add only the single nameserver to /etc/resolv.conf
+#   - add only the single nameserver to /etc/resolv.conf``
 #   - check /mnt/wsl/resolv.conf
 
 wsl-fix-connection () {
@@ -163,4 +163,11 @@ r-install-package () {
     return 1
   fi
   sudo R -q -e "install.packages('$1')"
+}
+r-install-github () {
+  if [ ! "$1" ]; then
+    echo "Argument (package name) required (e.g. \`r-install-github tidyverse\`)"
+    return 1
+  fi
+  sudo R -q -e "remotes::install_github('$1')"
 }
