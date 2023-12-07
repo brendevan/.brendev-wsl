@@ -29,7 +29,6 @@ wsl-fix-connection () {
   echo "    (cmd$ wsl --shutdown)"
   echo "------------------------------"
 }
-
 # Add required lines to /etc/wsl.conf
 wsl-conf-update () {
   # Create wsl.conf if it doesnt exist
@@ -134,4 +133,16 @@ wsl-print-resolv-conf () {
 }
 wsl-delete-last-line-resolv-conf () {
   sed '$d' /etc/resolv.conf
+}
+
+
+# ====================================
+#                 R 
+# ====================================
+r-install-package () {
+  if [ ! "$1" ]; then
+    echo "Argument (package name) required (e.g. \`r-install-package tidyverse\`)"
+    return 1
+  fi
+  sudo R -q -e "install.packages('$1')"
 }
