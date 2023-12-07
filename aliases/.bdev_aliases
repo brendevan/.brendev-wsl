@@ -134,6 +134,13 @@ wsl-print-resolv-conf () {
 wsl-delete-last-line-resolv-conf () {
   sed '$d' /etc/resolv.conf
 }
+wsl-connection-test () {
+  wget -q --spider http://google.com
+  if [ $? -eq 0 ]; 
+    then echo "Online"
+    else echo "Offline"
+  fi
+}
 
 
 # ====================================
