@@ -30,8 +30,8 @@
 # =====================================
 msg-h1 "INSTALLING R PACKAGES\n"
 source $BDEV/dotfiles/.RPackages
+# Ensure apt knows about CRAN repositories
 rpkgs-ensure-ppas
-
 # Remotes package required for installing from github
 rpkgs-install-and-msg remotes
 for PKG in "${BDEV_R_PACKAGES[@]}"; do
