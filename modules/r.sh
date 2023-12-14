@@ -16,7 +16,8 @@ yes | \
   "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" # Add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
 
 msg-h2 "Installing R and its dependencies"
-sudo apt-get install --no-install-recommends r-base
+sudo apt-get install --no-install-recommends r-base r-base-dev
+# Note: r-base-dev to compile R packages from source (incl. with install.packages())
 
 # =====================================
 #        INSTALL RADIAN CONSOLE

@@ -13,4 +13,3 @@ alias code-list-extensions='code --list-extensions'
 # ================================
 #            R/radian
 # ================================
-alias radian="radian --profile=$HOME/.RProfile"

@@ -1,3 +1,5 @@
+* Install okular
+
 * Setup codium .dotfiles (settings, snippets, shortcuts? json files) from bash script?
 
 * Setup codium extensions from bash script
@@ -32,3 +34,7 @@ bdev-install-vscode-extensions () {
 * Add msg's for system packages (like R packages)
 
 * Add .radian_profile to dotfiles
+
+* KEYBINDINGS: 
+    - Figure out how to remove all keybindings in vscode and start fresh
+    - Windows: remap CAPSLOCK to f13 and then open R terminal with ctrl+f13

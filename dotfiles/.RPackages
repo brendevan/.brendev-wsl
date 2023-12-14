@@ -19,7 +19,8 @@ BDEV_R_PACKAGES=(
   'bayesplot'
   'brms'
   'cmdstanr'
-  'INLA'
+  'Hmsc'        # Heirarchical modelling of species communities
+  'INLA'        # Integrated nested Laplace approximation (INLA); a fast alternative to MCMC
   'inlabru'	    # Spatial modelling with INLA	#spatial
   'loo'	        # Leave-One-Out cross validation
   'rjags'	      # Interface to JAGS
@@ -50,6 +51,7 @@ BDEV_R_PACKAGES=(
   'ggh4x'	      # Extends ggplot (better facetting)
   'ggpubr'	    # Arrange plots
   'ggsci'	      # Color palettes based on science journals and sci-fi
+  'heatmaply'   # Interactive correlation (and other) heatmaps
   'latex2exp'	  # Use latex to write plot labels
   'leaflet'	    # Interactive maps	#widgets
   'patchwork'	  # Arrange plots
@@ -63,7 +65,7 @@ BDEV_R_PACKAGES=(
   # =======================
   #     Marine Science
   # =======================
-  'fishflux'	  # Model elemental fluxes in fishes	fish	
+  'nschiett/fishflux'	  # Model elemental fluxes in fishes	fish	
   'fishualize'	# Color palettes based on teleost fishes	data viz	color palettes
   'rfishbase'	  # Interface to fishbase	fish	
   'renatoamorais/rfishprod'	  # Model fish productivity	fish

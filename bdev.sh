@@ -7,14 +7,9 @@
 # =========================
 #          ALIASES
 # =========================
-
-test () {
-  echo "$@"
-}
-
-
 # User facing functions to be moved to .bdev_aliases
 bdev-build () {
+  sudo :
   source $BDEV/bdev.sh
   # if [ ! "$1" ]
   #   then BDEV=$HOME/.brendev-wsl
