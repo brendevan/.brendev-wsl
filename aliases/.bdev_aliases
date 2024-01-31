@@ -15,43 +15,25 @@
 #   - check /mnt/wsl/resolv.conf
 
 wsl-fix-connection () {
-  echo "------------------------------"
-  echo "        /etc/wsl.conf "
-  echo "------------------------------"
+  sudo true
   wsl-conf-update
-  echo ""
-  echo "------------------------------"
-  echo "      Detecting Wifi DNS "
-  echo "------------------------------"
-  echo $(wsl-dns-query)
-  echo "\n USING $(wsl-dns-get)"
-  echo "------------------------------"
-  echo "      /etc/resolv.conf "
-  echo "------------------------------"
-  echo "ADDING DNS"
+  echo "\nresolv.conf: add new DNS $(wsl-dns-get)\n"
   wsl-dns-add-auto
-  echo "------------------------------"
-  echo "       !!IMPORTANT !!"
-  echo "------------------------------"
-  echo "  - TAKE NOTE OF PREVIOUS /etc/wsl.conf"
-  echo "    (incase something went wrong)"
-  echo "  - RESTART WSL"
-  echo "    (cmd$ wsl --shutdown)"
-  echo "------------------------------"
+  echo "\n "
 }
 # Add required lines to /etc/wsl.conf
 wsl-conf-update () {
   # Create wsl.conf if it doesnt exist
-  if [ -f /etc/wsl.conf ]
-    then echo "PREVIOUS /etc/wsl.conf:"; cat /etc/wsl.conf
-    else sudo touch /etc/wsl.conf
+  if [ ! -f /etc/wsl.conf ]
+    then sudo touch /etc/wsl.conf; echo "\n/etc/wsl.conf created"
   fi
   # Add lines to wsl.conf if they're not already there
   if grep -Pzoq '[network].*\n.*generateResolvConf = false' /etc/wsl.conf
   then
-    echo "\nNO ACTION TAKEN: required lines \n   [network]\n   generateResolvConf = false \nappear to already be present"
+    echo "\n/etc/wsl.conf exists with required lines"
   else 
-    echo "\nADDING LINES TO /etc/wsl.conf"
+    echo "\n/etc/wsl.conf requires additions"
+    echo "PREVIOUS /etc/wsl.conf:"; cat /etc/wsl.conf | sed '/^[[:space:]]*$/d'
     # Make /etc/wsl.conf writeable
     sudo chattr -i /etc/wsl.conf
     # Add required lines
@@ -59,8 +41,8 @@ wsl-conf-update () {
     # Make unwriteable
     sudo chattr +i /etc/wsl.conf
     # Print wsl.conf
-    echo "\n/etc/wsl.conf:"
-    cat /etc/wsl.conf
+    echo "\nNEW /etc/wsl.conf:"
+    cat /etc/wsl.conf | sed '/^[[:space:]]*$/d'
   fi  
 }
 wsl-dns-add-auto () {
@@ -117,8 +99,8 @@ wsl-dns-query () {
 wsl-dns-get () {
   # Method from ChatGPT: Get ipconfig.exe output from windows ipconfig command
   echo "$(ipconfig.exe /all)" | \
-    # Get the wifi block of the output
-    awk '/Wireless LAN adapter WiFi:/,/^$/ {if (/^$/) exit; else print}' | \
+    ## Get the wifi block of the output
+    # awk '/Wireless LAN adapter WiFi:/,/^$/ {if (/^$/) exit; else print}' |  \
     # Get the DNS Servers line
     grep "DNS Servers" | \
     # Return just the WIFI DNS number X.X.X.X
@@ -150,7 +132,7 @@ wsl-test-connection () {
   if [ $? -eq 0 ]; 
     then echo "Online"
     else echo "Offline"
-  fi
+  fi 
 }
 wsl-wipe-resolv-conf () {
   sudo chattr -i /etc/resolv.conf
@@ -163,19 +145,22 @@ wsl-wipe-resolv-conf () {
 # ====================================
 #                 R 
 # ====================================
-r-install-package () {
+rpkgs-install () {
   if [ ! "$1" ]; then
-    echo "Argument (package name) required (e.g. \`r-install-package tidyverse\`)"
+    echo "Argument (package name) required (e.g. \`rpkgs-install tidyverse\`)"
     return 1
   fi
   sudo R -q -e "install.packages('$1')"
 }
-r-install-github () {
+rpkgs-install-github () {
   if [ ! "$1" ]; then
-    echo "Argument (package name) required (e.g. \`r-install-github tidyverse\`)"
+    echo "Argument (package name) required (e.g. \`rpkgs-install-github paul-buerkner/brms\`)"
     return 1
   fi
-  sudo R -q -e "remotes::install_github('$1')"
+  if [ $2 = "force" ]; 
+    then sudo R -q -e "remotes::install_github('$1', force=TRUE)"
+    else sudo R -q -e "remotes::install_github('$1')"
+  fi
 }
 
 

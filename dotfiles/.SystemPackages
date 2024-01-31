@@ -12,6 +12,7 @@ BDEV_SYS_PACKAGES=(
   gdebi-core            \
   libcairo2-dev         \   # httpgd^ dep
   libcurl4-openssl-dev  \   # languageserver^ dep
+  libgdal-dev           \   # r spatial dependency (incl. terra^)
   libgsl-dev            \   # GNU GSL library - mvabund^ dep (via rcppgsl^)
   libssl-dev            \   # languageserver^ dep
   libxml2-dev           \   # languageserver^ dep 
