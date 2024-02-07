@@ -43,4 +43,4 @@ done
 # =====================================
 msg-h1 "INSTALLING OTHER REQUIRED TOOLS\n"
 msg-h2 "Installing CmdStan (cmdstanr dependency)"
-R -e "cmdstanr::install_cmdstan()"
+sudo R -e "cmdstanr::install_cmdstan()"
