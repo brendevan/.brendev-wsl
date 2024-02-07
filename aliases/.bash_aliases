@@ -24,9 +24,11 @@ alias r='radian'
 # ================================
 #            TRASH
 # ================================
-TRASH=$HOME/.local/share/Trash
 alias rm='trash'
-alias trash-path='echo $TRASH'
+TRASH=$HOME/.local/share/Trash
+trash-path () {
+  echo $TRASH
+}
 trash-files () {
   if [ -z "$(ls -A $TRASH/files)" ]
     then echo "No files in trash"
