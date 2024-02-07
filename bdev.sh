@@ -28,7 +28,7 @@ bdev-build () {
 }
 
 # ============================================
-#    BDEV: helper functions for bdev setup 
+#    BDEV: helper functions for bdev build
 # ============================================
 bdev-export () {
   msg "\n🦈 Setting BDEV environment variable to $1"

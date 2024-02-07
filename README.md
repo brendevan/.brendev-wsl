@@ -11,7 +11,7 @@
 # ↓ Run as is ↓
 git clone https://github.com/brendevan/.brendev-wsl $HOME/.brendev-wsl
 source $HOME/.brendev-wsl/.bdev.sh
-bdev-setup
+bdev-build
 ```
 
 **Clone to somewhere else**

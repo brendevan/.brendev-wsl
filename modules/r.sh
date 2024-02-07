@@ -37,3 +37,10 @@ rpkgs-install-and-msg remotes
 for PKG in "${BDEV_R_PACKAGES[@]}"; do
   rpkgs-install-and-msg $PKG
 done
+
+# =====================================
+#      OTHER INSTALLATIONS
+# =====================================
+msg-h1 "INSTALLING OTHER REQUIRED TOOLS\n"
+msg-h2 "Installing CmdStan (cmdstanr dependency)"
+R -e "cmdstanr::install_cmdstan()"
