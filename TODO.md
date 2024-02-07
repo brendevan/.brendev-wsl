@@ -40,4 +40,4 @@ In no particular order (or coherence):
   - Change r packages messages so that if updated it displays `oldversion -> newversion` e.g. `remotes (2.4.0.0 -> 2.4.2.1)`
 
 
-  libgdal32  libproj25
+* terra r package seems to install fine, but does not that i don't have the dependencies: libgdal32  libproj25. add these to system packages if this becomes a problem (i haven't tried to use terra yet)
