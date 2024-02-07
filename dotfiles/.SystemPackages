@@ -16,9 +16,11 @@ BDEV_SYS_PACKAGES=(
   libgsl-dev            \   # GNU GSL library - mvabund^ dep (via rcppgsl^)
   libssl-dev            \   # languageserver^ dep
   libxml2-dev           \   # languageserver^ dep 
-  blas                 \   # Hmsc^ dep
-  lapack               \   # Hmsc^ dep
+  blas                  \   # Hmsc^ dep
+  lapack                \   # Hmsc^ dep
   moreutils             \   # sponge command used in bdev
   pandoc                \
-  python3-pip               # to install radian console
+  python3-pip           \   # to install radian console
+  trash-cli             \   # delete to trash (recycle bin) 
+  empty-trash-cli           # command to empty trash
 )

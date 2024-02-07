@@ -1,3 +1,0 @@
-nameserver 10.10.72.50
-nameserver 192.168.152.81
-nameserver 10.10.72.50
