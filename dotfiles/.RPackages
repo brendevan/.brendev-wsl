@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# TODO: Consider converting to renv (or storing array in environment variable?) (not urgent)
-
-# =====================================
-#              R PACKAGES
-# =====================================
-
 BDEV_R_PACKAGES=(
 
   # =====================
@@ -18,7 +12,7 @@ BDEV_R_PACKAGES=(
   'bayesnec'	  # Beccy's bayesian no effect concentration modelling
   'bayesplot'
   'brms'
-  'cmdstanr'
+  'stan-dev/cmdstanr'  # R interface to stan (development version). See Note 1 below.
   'Hmsc'        # Heirarchical modelling of species communities
   'INLA'        # Integrated nested Laplace approximation (INLA); a fast alternative to MCMC
   'inlabru'	    # Spatial modelling with INLA	#spatial
@@ -108,3 +102,9 @@ BDEV_R_PACKAGES=(
   'utf8'	      # Unicode text processing	other	
   # =========END============
 )
+
+
+# =====================================
+#                NOTES
+# =====================================
+# 1 - cmdstanr - last I tried, I needed to remove all installations of cmdstanr, then install it with `sudo R -e 'install.packages("cmdstanr", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))'`. Then call cmdstanr::install_cmdstan() from a non-sudo R console. 
