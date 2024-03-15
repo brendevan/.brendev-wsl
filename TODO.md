@@ -41,3 +41,5 @@ In no particular order (or coherence):
 
 
 * terra r package seems to install fine, but does not that i don't have the dependencies: libgdal32  libproj25. add these to system packages if this becomes a problem (i haven't tried to use terra yet)
+
+* `cmdstanr`: in order for cmdstanr to work it seems like I need to sudo

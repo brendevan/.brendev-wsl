@@ -38,3 +38,9 @@ bdev-setup $PATH
 
 * (`.run-log.txt`): this file logs the setup/"install" output.
 * (.setup.sh): defines a quick interface to `main.sh`.
+
+
+## Notes
+
+- A basic note organising tool. Requires a git repo called .notes cloned into the home folder.
+- Functionality setup in .bash_aliases

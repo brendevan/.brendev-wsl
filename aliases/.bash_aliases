@@ -21,8 +21,14 @@ alias code-list-extensions='code --list-extensions'
 # ================================
 alias r='radian'
 
+source $BDEV/programs/notes.sh
+
+
+
+
+
 # ================================
-#            TRASH
+#             TRASH
 # ================================
 alias rm='trash'
 TRASH=$HOME/.local/share/Trash

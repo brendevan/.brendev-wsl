@@ -1,10 +1,10 @@
 # =============================
 #     ENVIRONMENT VARIABLES
 # =============================
-export BDEV=/home/brendan/.brendev-wsl
+export BDEV=$HOME/.brendev-wsl
 export ALIAS_BASH=$BDEV/aliases/.bash_aliases
 export ALIAS_BDEV=$BDEV/aliases/.bdev_aliases
-
+export NOTES="$HOME/.notes"
 # =============================
 #           ALIASES
 # =============================
@@ -18,4 +18,7 @@ load_aliases $ALIAS_BASH
 load_aliases $ALIAS_BDEV
 
 
-
+# =============================
+#      LOAD BDEV PROGRAMS
+# =============================
+source $BDEV/programs/notes.sh
