@@ -3,7 +3,6 @@
 # ================================
 alias back='cd -'
 
-
 # ================================
 #              GIT
 # ================================
@@ -20,12 +19,6 @@ alias code-list-extensions='code --list-extensions'
 #            R/radian
 # ================================
 alias r='radian'
-
-source $BDEV/programs/notes.sh
-
-
-
-
 
 # ================================
 #             TRASH

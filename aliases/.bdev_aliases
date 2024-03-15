@@ -153,13 +153,6 @@ rpkgs-install-github () {
   fi
 }
 
-# ====================================
-#               NOTES
-# ====================================
-
-
-
-
 
 # ====> BDEV-DOTFILES-*
 # BDEV-DOTFILE-RELINK: rerun the dotfiles script (creates symlinks to dotfiles in BDEV/dotfiles)
