@@ -22,5 +22,6 @@ BDEV_SYS_PACKAGES=(
   pandoc                \
   python3-pip           \   # to install radian console
   trash-cli             \   # delete to trash (recycle bin) 
+  tree                  \   # print directory trees
   empty-trash-cli           # command to empty trash
 )
