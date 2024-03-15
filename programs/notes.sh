@@ -45,7 +45,10 @@ notes-open () {
         return
       fi
       note_name="${1%%.*}" # Remove file extension if present
-      files_found=$(find $NOTES -name "$1.*")
+      if [[ $1 == *"/"* ]]
+      then files_found=$(find $NOTES -wholename "*$1.*")
+      else files_found=$(find $NOTES -name "$1.*")
+      fi
       file_count=$(echo "$files_found" | wc -l)
       
       # If no matches, open new note
@@ -169,7 +172,13 @@ note () {
 }
 notes () {
   if [ "$1" ]; 
-  then notes-search "$1"
+  then 
+    if [[ $1 == *"/"* ]]; then 
+      echo "Warning! Searching in specific topics is not supported :("
+      1="${1##*/}"
+      echo "Searching for '$1' in all notes"; echo ""
+    fi
+    notes-search "$1"
   else notes-tree
   fi
 }
