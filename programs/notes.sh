@@ -84,7 +84,8 @@ notes () {
         # If a single match, open it
         if [ $file_count = 1 ]; then
           code $files_found
-          note_name="${files_found//$NOTES}" | sed 's|^/||'
+          note_name=$(echo "${files_found//$NOTES}" | sed 's|^/||')
+          note_name="${note_name%%.*}"
           echo "Existing note '$note_name' opened"
         fi
         if (( $file_count > 1 )); then
