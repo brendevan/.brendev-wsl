@@ -27,6 +27,22 @@ notes () {
   _notes-list-topics () {
     find $NOTES -type d -printf "%P\n" | grep -vE '^\.|^$'
   }
+  _notes-find () {
+  # First, remove file extension
+    if [ ! "$1" ]; then 
+      return 1
+    fi
+    if [[ $1 == *.*.* ]]; then 
+      return 2
+    fi
+    note_name="${1%%.*}" # Remove file extension if present
+    if [[ $1 == *"/"* ]]
+    then files_found=$(find $NOTES -wholename "*$note_name.*")
+    else files_found=$(find $NOTES -name "$note_name.*")
+    fi
+    echo $files_found | sed -e '/^[[:space:]]*$/d' # Remove blanklines
+    return 0
+  }
   # Backup notes to github
   notes-backup () {
     if _notes-check; then
@@ -176,6 +192,14 @@ notes () {
   # Delete notes
   notes-rm () {
     if _notes-check; then 
+      if _notes-find $1 >/dev/null; then 
+        files_found=$(_notes-find $1) | sed -e '/^[[:space:]]*$/d'
+        file_count=$(echo "$files_found" | wc -l)
+        echo $files_found
+        echo $file_count
+        return
+      else echo "didn't find"; return
+      fi
       NOTE="$NOTES/$1"
       if [ -f $NOTE ]
       then trash $NOTE
