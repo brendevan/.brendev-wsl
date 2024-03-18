@@ -84,7 +84,8 @@ notes () {
         # If a single match, open it
         if [ $file_count = 1 ]; then
           code $files_found
-          echo "Existing note at $files_found opened"
+          note_name="${files_found//$NOTES}" | sed 's|^/||'
+          echo "Existing note '$note_name' opened"
         fi
         if (( $file_count > 1 )); then
           echo "Error! Multiple notes match your supplied name"
