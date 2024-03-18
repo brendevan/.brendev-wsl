@@ -29,10 +29,12 @@ notes () {
   }
   _notes-find () {
   # First, remove file extension
-    if [ ! "$1" ]; then 
+    if [ ! "$1" ]; then
+      echo "Error! Note search term is empty"
       return 1
     fi
     if [[ $1 == *.*.* ]]; then 
+      echo "Error! Multiple '.' in note name not allowed"
       return 2
     fi
     note_name="${1%%.*}" # Remove file extension if present
@@ -104,11 +106,9 @@ notes () {
           echo "New note at $NOTES/$1 created and opened"
           code $NOTES/$1
         else 
-          echo "Error! Invalid note name"
-          echo "Every note must be stored within at least one topic and all topics and note names must begin with a character"
-          echo "note <topic>/<optional subtopic>/.../<optional subtopic>/<note name>"
+          echo "Error! Invalid note name (see notes --help)"
         fi
-      else echo "Error! No note name supplied. See notes-help" 
+      else echo "Error! No note name supplied (see notes --help)" 
       fi
     fi
   }
@@ -191,24 +191,36 @@ notes () {
   }
   # Delete notes
   notes-rm () {
-    if _notes-check; then 
-      if _notes-find $1 >/dev/null; then 
-        files_found=$(_notes-find $1) | sed -e '/^[[:space:]]*$/d'
-        file_count=$(echo "$files_found" | wc -l)
-        echo $files_found
-        echo $file_count
+    if _notes-check; then
+      # Search for notes
+      if _notes-find $1 >/dev/null
+      then 
+        note_search="${1// /_}"
+        files_found=$(_notes-find $note_search)
+        file_count=$(echo "$files_found" | sed '/^$/d' | wc -l)
+        # If no notes found, print error
+        if [ $file_count = 0 ]; then
+          echo "Error! No notes found matching '$note_search'"
+        # If exactly one note found, delete it
+        elif [ $file_count = 1 ]; then
+          trash $files_found
+          echo "Removed note:"
+          echo "${files_found//$NOTES}" | sed 's|^/||'
+          # Delete any empty directories left behind
+          empty_topics=$(find $NOTES -type d -empty)
+          nempty=$(echo $empty_topics | sed '/^$/d' | wc -l)
+          if (( $nempty > 0 )); then
+            find $NOTES -type d -empty -delete
+            echo "Removed $nempty empty topics:"
+            echo "${empty_topics//$NOTES}" | sed 's|^/||'
+          fi
+        # Else if multiple notes found, print their paths and return
+        elif (( $file_count > 1)); then
+          echo "$file_count files found:"
+          echo $files_found
+          echo "Please be more specific"
+        fi
         return
-      else echo "didn't find"; return
-      fi
-      NOTE="$NOTES/$1"
-      if [ -f $NOTE ]
-      then trash $NOTE
-      else 
-        echo "Error! Note not found at $NOTE"
-        echo "To enable autocompletion, you can also send notes to the trash can with"
-        echo "trash \$NOTES/<topic>/.../<note_name>"
-        echo "Or you can delete them for good with"
-        echo "rm \$NOTES/<topic>/.../<note_name>"
       fi
     fi
   }
@@ -236,6 +248,14 @@ notes () {
       echo "      - contain no spaces, instead only underscores and if you must, dashes"
       echo " 2) every note must be in a topic"
       echo " 3) supply file extensions when creating/removing targets, but you don't need to when openning"
+      echo ""
+      echo "NOTE NAME CONVENTIONS:"
+      echo " - Every note must be stored within at least one topic"
+      echo " - Topic and note names:"
+      echo "    - must begin with a character"
+      echo "    - must contain only alphanumeric characters and underscores (_) or dashes (-)"
+      echo "    - notes can end with a file extension (.md, .txt, etc) but don't need to"
+      echo "    - no spaces"
     fi
   }
 
